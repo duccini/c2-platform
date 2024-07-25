@@ -1,6 +1,6 @@
 import HeroSection from "@/components/Hero";
 import Container from "@/components/Container";
-import CardParaQuem from "./components/cardParaQuem";
+import CardParaQuem from "./components/CardForWho";
 import CardMuitoMais from "./components/CardMuitoMais";
 import StackCard from "./components/StackCard";
 import TechCard from "./components/StackCard/TechCard";
