@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import { FaArrowLeft, FaEnvelope, FaLock } from "react-icons/fa";
 import Image from "next/image";
 
-import logoCodigoCerto from "../../../public/images/codigocerto.svg";
+import logoCodigoCerto from "../../../../public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/Container-login/page";
 
 export default function EsqueciSenha() {

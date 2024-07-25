@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 
-import logoCodigoCerto from "../../../public/images/codigocerto.svg";
+import logoCodigoCerto from "../../../../public/images/codigocerto.svg";
 import Link from "next/link";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import Image from "next/image";
@@ -53,8 +53,8 @@ export default function LoginUser() {
 
           <div className={styles.checkbox}>
             <input type="checkbox" id="checkbox1" />
-              <div className="custom-checkbox"></div>
-              <span>Manter conectado</span>
+            <div className="custom-checkbox"></div>
+            <span>Manter conectado</span>
           </div>
 
           <div className={styles.submitContainer}>

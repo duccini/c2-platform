@@ -1,14 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-import logoCodigoCerto from "../../../public/images/codigocerto.svg";
+import logoCodigoCerto from "../../../../public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/Container-login/page";
 
-import {
-  FaEnvelope,
-  FaLock,
-  FaUser,
-} from "react-icons/fa";
+import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import Link from "next/link";
 
 export default function CadastroUser() {
