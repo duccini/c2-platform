@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid var(--gray-100);
 }
 
 .logoImg {
@@ -66,36 +66,98 @@
   }
 
   .mobileSection {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    z-index: 99999;
-    background-color: var(--gray-950);
-    gap: 2.5rem;
-    padding: 2rem;
+    touch-action: none;
+    position: relative;
+    place-content: center;
+    width: 100%;
     height: 100%;
-    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
-    transition: 0.75s ease-in-out;
+    background-color: transparent;
+    gap: 2.75rem;
   }
 
-  .navContentMobile {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+  .mobileSection,
+  .mobileSection::backdrop {
+    transition: 500ms opacity, 500ms overlay allow-discrete,
+      500ms display allow-discrete;
+    opacity: 0;
+  }
+
+  .mobileSection .navContentMobile a,
+  .mobileSection .loginButtonMobile {
+    transition: 500ms transform;
+    transform: translateY(-48px);
+  }
+
+  .mobileSection::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+  }
+
+  .mobileSection:popover-open {
+    opacity: 1;
+    display: grid;
+  }
+
+  .mobileSection:popover-open .navContentMobile a,
+  .mobileSection:popover-open .loginButtonMobile {
+    transform: translateY(0);
+  }
+
+  .mobileSection:popover-open::backdrop {
+    opacity: 1;
+  }
+
+  @starting-style {
+    .mobileSection:popover-open,
+    .mobileSection:popover-open::backdrop {
+      opacity: 0;
+    }
+
+    .mobileSection:popover-open .navContentMobile a,
+    .mobileSection:popover-open .loginButtonMobile {
+      transform: translateY(48px);
+    }
   }
 
   .hamburgerButton,
   .closeButton {
     display: flex;
   }
+
+  .closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+  }
+
+  .navContentMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .closeButton,
+  .navContentMobile,
+  .loginButtonMobile {
+    color: var(--gray-400);
+  }
+
+  .navContentMobile,
+  .loginButtonMobile {
+    font-size: 2rem;
+  }
+
+  .loginButtonMobile {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 400px) {
-  .mobileSection {
-    width: 100%;
+  .navContentMobile,
+  .loginButtonMobile {
+    font-size: 1.75rem;
   }
 }

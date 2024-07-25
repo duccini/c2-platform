@@ -1,36 +1,25 @@
 "use client";
 
+/// <reference types="react/canary" />
+
 import Link from "next/link";
 import Image from "next/image";
 
-import { useState, useRef, useEffect } from "react";
+import { MouseEvent } from "react";
 
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
-import logoImg from "../../../public/images/codigocerto.svg";
+import logoImg from "public/images/codigocerto.svg";
 
 import styles from "./styles.module.css";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement | null>(null);
+  const togglePopover = (e: MouseEvent) => {
+    const popover = document.getElementById("mobile");
 
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (!menuRef.current?.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handler);
-
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  }, [isOpen]);
-
-  const toggleNavBar = () => {
-    setIsOpen(!isOpen);
+    if (e.button === 0) {
+      popover?.hidePopover();
+    }
   };
 
   return (
@@ -51,7 +40,7 @@ const Header = () => {
         <nav className={styles.navContent}>
           <Link href="/diversidade">Diversidade</Link>
           <Link href="/networking">Networking</Link>
-          <Link href="/#">Equipe</Link>
+          <Link href="/">Equipe</Link>
         </nav>
 
         <div className={styles.loginButton}>
@@ -60,35 +49,37 @@ const Header = () => {
           </Link>
         </div>
 
-        <button className={styles.hamburgerButton} onClick={toggleNavBar}>
+        <button
+          popoverTarget="mobile"
+          className={styles.hamburgerButton}
+          onClick={togglePopover}
+        >
           <AiOutlineMenu size={36} />
         </button>
 
-        {isOpen && (
-          <div className={styles.mobileSection} ref={menuRef}>
-            <button className={styles.closeButton} onClick={toggleNavBar}>
-              <AiOutlineClose size={36} />
-            </button>
+        <div id="mobile" popover="" className={styles.mobileSection}>
+          <button popoverTarget="mobile" className={styles.closeButton}>
+            <AiOutlineClose size={36} />
+          </button>
 
-            <nav className={styles.navContentMobile}>
-              <Link href="/diversidade" onClick={toggleNavBar}>
-                Diversidade
-              </Link>
-              <Link href="/networking" onClick={toggleNavBar}>
-                Networking
-              </Link>
-              <Link href="/#" onClick={toggleNavBar}>
-                Equipe
-              </Link>
-            </nav>
+          <nav className={styles.navContentMobile}>
+            <Link href="/diversidade" onClick={togglePopover}>
+              Diversidade
+            </Link>
+            <Link href="/networking" onClick={togglePopover}>
+              Networking
+            </Link>
+            <Link href="/" onClick={togglePopover}>
+              Equipe
+            </Link>
+          </nav>
 
-            <div className={styles.loginButtonMobile}>
-              <Link href="/">
-                <span>Login</span>
-              </Link>
-            </div>
+          <div className={styles.loginButtonMobile}>
+            <Link href="/" onClick={togglePopover}>
+              <span>Login</span>
+            </Link>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import yodaImage from "../../../public/images/yoda.png";
+import yodaImage from "public/images/yoda.png";
 
 import styles from "./styles.module.css";
 
