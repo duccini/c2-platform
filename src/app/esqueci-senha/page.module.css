@@ -1,4 +1,4 @@
-.newUserContainer {
+.containerSenhaUser {
   display: flex;
 }
 
@@ -43,9 +43,9 @@
 }
 
 .paragraphForm {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 10px;
   text-align: left;
   margin-bottom: 50px;
   margin-top: 20px;
@@ -93,7 +93,7 @@
   flex-direction: column;
 }
 
-.submitButton {
+.buttonRecuperar {
   width: 366px;
   height: 51px;
   padding: 16px 10px 16px 10px;
@@ -109,22 +109,42 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 19.36px;
+
+  display: flex;
+  justify-content: center;
 }
 
-.submitButton:hover {
+.buttonRecuperar:hover {
   background: #872525;
   cursor: pointer;
 }
 
-.signupLink {
+.buttonLogin {
+  width: 366px;
+  height: 51px;
+  padding: 16px 10px 16px 10px;
+  gap: 10px;
+  border-radius: 12px;
+  opacity: 0px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background: #3b3b3b;
+  color: white;
+  border: none;
+
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 19.36px;
-  margin: 10px 10px 10px 10px;
-  color: #787878;
+
+  display: flex;
+  justify-content: center;
 }
 
-.linkLogin {
-  margin-left: 10px;
-  color: white;
+.buttonLogin:hover {
+  background: #121212;
+  cursor: pointer;
+}
+
+.arrowLeft {
+  margin-right: 5px;
 }

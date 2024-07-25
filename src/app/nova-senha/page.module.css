@@ -1,4 +1,4 @@
-.newUserContainer {
+.containerRedefinirSenha {
   display: flex;
 }
 
@@ -72,11 +72,6 @@
   text-align: left;
 }
 
-.icon {
-  color: rgb(95, 95, 95);
-  margin-right: 10px;
-}
-
 .formField input {
   flex-grow: 1;
   background: none;
@@ -84,13 +79,6 @@
   color: white;
   padding: 5px;
   outline: none;
-}
-
-.submitContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
 
 .submitButton {
@@ -102,6 +90,7 @@
   opacity: 0px;
   margin-bottom: 20px;
   margin-top: 20px;
+  margin-left: 80px;
   background: #eb4242;
   color: white;
   border: none;
@@ -114,17 +103,4 @@
 .submitButton:hover {
   background: #872525;
   cursor: pointer;
-}
-
-.signupLink {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 19.36px;
-  margin: 10px 10px 10px 10px;
-  color: #787878;
-}
-
-.linkLogin {
-  margin-left: 10px;
-  color: white;
 }

@@ -1,52 +1,76 @@
-import Image from "next/image";
+import styles from "./page.module.css";
+
+import logoCodigoCerto from "../../../public/images/codigocerto.svg";
 import Link from "next/link";
-import { FaLock, FaEnvelope } from "react-icons/fa";
-import yodaPng from "../cadastro/image/yoda.png"
-import styles from "../cadastro/page.module.css"
+import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
+import Image from "next/image";
+import BackgroundStyle from "@/components/Container-login/page";
 
 export default function LoginUser() {
   return (
-    <div className={styles.loginContainer}>
-      <div className={styles.imageContainer}>
-        <Image src={yodaPng} alt="Yoda" width={500} height={500} />
-      </div>
+    <div className={styles.loginUserContainer}>
+      <BackgroundStyle />
 
-      <div className={styles.formContainer}>
+      <div className={styles.containerForm}>
+        <div className={styles.subContainer}>
+          <Image
+            className={styles.logoContainer}
+            src={logoCodigoCerto}
+            alt="Description"
+            width={60}
+            height={40}
+          />
+          <h1 className={styles.titleConatinerForm}>Código Certo Coders</h1>
+        </div>
+
         <form className={styles.form}>
-          <h1 className={styles.titleContainer}>Login</h1>
-          <p className={styles.paragraphContainer}>
-            Campos marcados com * são obrigatórios.
+          <h1 className={styles.titleForm}>Acessar sua conta</h1>
+          <p className={styles.paragraphForm}>
+            Informe seu e-mail e senha para acessar sua conta.
           </p>
 
+          <p className={styles.paragraphField}>Email*</p>
           <div className={styles.formField}>
             <FaEnvelope className={styles.icon} />
-            <input type="email" id="email" name="Email" placeholder="Email *" />
+            <input
+              type="email"
+              id="email"
+              name="Email"
+              placeholder="Digite seu email"
+            />
           </div>
 
+          <p className={styles.paragraphField}>Senha*</p>
           <div className={styles.formField}>
             <FaLock className={styles.icon} />
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="Senha *"
+              placeholder="Digite sua senha"
             />
           </div>
 
-          <div className={styles.signupLink}>
-            <div className={styles.checkbox}>
-              <input type="checkbox" />
-              <span>Lembrar-me</span>
-            </div>
-
-            <Link href="/recuperar" className={styles.linkColor}>
-              Esqueci a senha
-            </Link>
+          <div className={styles.checkbox}>
+            <input type="checkbox" id="checkbox1" />
+              <div className="custom-checkbox"></div>
+              <span>Manter conectado</span>
           </div>
 
-          <button type="submit" className={styles.submitButton}>
-            Entrar
-          </button>
+          <div className={styles.submitContainer}>
+            <button type="submit" className={styles.submitButton}>
+              Criar conta
+            </button>
+
+            <p className={styles.signupLink}>
+              Não tem uma conta?
+              <span>
+                <Link href="/cadastro" className={styles.linkLogin}>
+                  Criar uma conta
+                </Link>
+              </span>
+            </p>
+          </div>
         </form>
       </div>
     </div>
