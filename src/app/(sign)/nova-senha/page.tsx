@@ -1,52 +1,55 @@
+import styles from "./page.module.css";
 import Image from "next/image";
-import Link from "next/link";
-import { FaLock } from "react-icons/fa";
-import yodaPng from "../cadastro/image/yoda.png"
-import styles from "../cadastro/page.module.css"
 
-export default function NewSenha() {
+import logoCodigoCerto from "../../../public/images/codigocerto.svg";
+import BackgroundStyle from "@/components/Container-login/page";
+
+export default function RedefinirSenha() {
   return (
-    <div className={styles.loginContainer}>
-      <div className={styles.imageContainer}>
-        <Image src={yodaPng} alt="Yoda" width={500} height={500} />
-      </div>
+    <div className={styles.containerRedefinirSenha}>
+      <BackgroundStyle />
 
-      <div className={styles.formContainer}>
+      <div className={styles.containerForm}>
+        <div className={styles.subContainer}>
+          <Image
+            className={styles.logoContainer}
+            src={logoCodigoCerto}
+            alt="Description"
+            width={60}
+            height={40}
+          />
+          <h1 className={styles.titleConatinerForm}>Código Certo Coders</h1>
+        </div>
+
         <form className={styles.form}>
-          <h1 className={styles.titleContainer}>Nova Senha</h1>
-          <p className={styles.paragraphContainer}>
-            Campos marcados com * são obrigatórios.
-          </p>
+          <h1 className={styles.titleForm}>Redefinir senha</h1>
+          <p className={styles.paragraphForm}>Insira sua nova senha.</p>
 
+          <p className={styles.paragraphField}>Nova Senha*</p>
           <div className={styles.formField}>
-            <FaLock className={styles.icon} />
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="Senha *"
+              placeholder="Deve conter no mínimo 8 caracteres"
             />
           </div>
 
+          <p className={styles.paragraphField}>Confirmar nova senha*</p>
           <div className={styles.formField}>
-            <FaLock className={styles.icon} />
             <input
               type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              placeholder="Confirmar Senha*"
+              id="password"
+              name="password"
+              placeholder="Deve conter no mínimo 8 caracteres"
             />
           </div>
 
-          <div className={styles.signupLink}>
-            <Link href="/login" className={styles.linkColor}>
-              Ir para Login
-            </Link>
+          <div className={styles.submitContainer}>
+            <button type="submit" className={styles.submitButton}>
+              Alterar senha
+            </button>
           </div>
-
-          <button type="submit" className={styles.submitButton}>
-            Entrar
-          </button>
         </form>
       </div>
     </div>

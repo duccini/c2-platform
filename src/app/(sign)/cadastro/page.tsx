@@ -1,94 +1,86 @@
 import Image from "next/image";
-import Link from "next/link";
+import styles from "./page.module.css";
+
+import logoCodigoCerto from "../../../public/images/codigocerto.svg";
+import BackgroundStyle from "@/components/Container-login/page";
+
 import {
-  FaUser,
-  FaLock,
   FaEnvelope,
-  FaGithub,
-  FaLinkedin,
-  FaGlobe,
+  FaLock,
+  FaUser,
 } from "react-icons/fa";
-import yodaPng from "./image/yoda.png";
-import styles from "./page.module.css"
+import Link from "next/link";
 
 export default function CadastroUser() {
   return (
-    <div className={styles.loginContainer}>
-      <div className={styles.imageContainer}>
-        <Image src={yodaPng} alt="Yoda" width={500} height={500} />
-      </div>
+    <div className={styles.newUserContainer}>
+      <BackgroundStyle />
 
-      <div className={styles.formContainer}>
+      <div className={styles.containerForm}>
+        <div className={styles.subContainer}>
+          <Image
+            className={styles.logoContainer}
+            src={logoCodigoCerto}
+            alt="Description"
+            width={60}
+            height={40}
+          />
+          <h1 className={styles.titleConatinerForm}>Código Certo Coders</h1>
+        </div>
+
         <form className={styles.form}>
-          <h1 className={styles.titleContainer}>Cadastro</h1>
-          <p className={styles.paragraphContainer}>
-            Campos marcados com * são obrigatórios.
+          <h1 className={styles.titleForm}>Criar conta</h1>
+          <p className={styles.paragraphForm}>
+            Preencha os campos abaixo para criar sua conta.
           </p>
 
+          <p className={styles.paragraphField}>Nome*</p>
           <div className={styles.formField}>
             <FaUser className={styles.icon} />
             <input
               type="text"
               id="username"
               name="username"
-              placeholder="Nome *"
+              placeholder="Digite seu nome"
             />
           </div>
 
+          <p className={styles.paragraphField}>Email*</p>
           <div className={styles.formField}>
             <FaEnvelope className={styles.icon} />
-            <input type="email" id="email" name="Email" placeholder="Email *" />
+            <input
+              type="email"
+              id="email"
+              name="Email"
+              placeholder="Digite seu email"
+            />
           </div>
 
+          <p className={styles.paragraphField}>Senha*</p>
           <div className={styles.formField}>
             <FaLock className={styles.icon} />
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="Senha *"
+              placeholder="Digite sua senha"
             />
           </div>
 
-          <div className={styles.formField}>
-            <FaGithub className={styles.icon} />
-            <input
-              type="text"
-              id="githubConnect"
-              name="githubConnect"
-              placeholder="Github *"
-            />
+          <div className={styles.submitContainer}>
+            <button type="submit" className={styles.submitButton}>
+              Criar conta
+            </button>
+
+            <p className={styles.signupLink}>
+              Já tem uma conta?
+              <span>
+                <Link href="/login" className={styles.linkLogin}>
+                  Fazer login.
+                </Link>
+              </span>
+            </p>
           </div>
-
-          <div className={styles.formField}>
-            <FaLinkedin className={styles.icon} />
-            <input
-              type="password"
-              id="securityAnswer"
-              name="securityAnswer"
-              placeholder="LinkedIn *"
-            />
-          </div>
-
-          <div className={styles.formField}>
-            <FaGlobe className={styles.icon} />
-            <input
-              type="password"
-              id="additionalPassword"
-              name="additionalPassword"
-              placeholder="Portfólio *"
-            />
-          </div>
-
-          <p className={styles.signupLink}>
-            <Link href="/login" className={styles.linkColor}>
-              Já tenho cadastro
-            </Link>
-          </p>
-
-          <button type="submit" className={styles.submitButton}>
-            Cadastrar
-          </button>
         </form>
       </div>
     </div>
