@@ -1,14 +1,13 @@
-import Link from "next/link";
+
 import styles from "./page.module.css";
-import { FaArrowLeft, FaEnvelope, FaLock } from "react-icons/fa";
 import Image from "next/image";
 
 import logoCodigoCerto from "../../../public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/Container-login/page";
 
-export default function EsqueciSenha() {
+export default function RecuperarSenha() {
   return (
-    <div className={styles.containerSenhaUser}>
+    <div className={styles.containerRecuperarSenha}>
       <BackgroundStyle />
 
       <div className={styles.containerForm}>
@@ -24,32 +23,29 @@ export default function EsqueciSenha() {
         </div>
 
         <form className={styles.form}>
-          <h1 className={styles.titleForm}>Esqueci minha senha</h1>
+          <h1 className={styles.titleForm}>Recuperar senha</h1>
           <p className={styles.paragraphForm}>
-            Insira seu e-mail abaixo e enviaremos um link para redefinição de
-            senha.
+            Insira o código de 6 dígitos enviado para{" "}
+            <span>email@email.com</span>
           </p>
 
-          <p className={styles.paragraphField}>Email*</p>
           <div className={styles.formField}>
-            <FaEnvelope className={styles.icon} />
-            <input
-              type="email"
-              id="email"
-              name="Email"
-              placeholder="Digite seu email"
-            />
+            <input type="text" className={styles.inputNumber} />
+            <input type="text" className={styles.inputNumber} />
+            <input type="text" className={styles.inputNumber} />
+            <input type="text" className={styles.inputNumber} />
+            <input type="text" className={styles.inputNumber} />
+            <input type="text" className={styles.inputNumber} />
           </div>
 
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.buttonRecuperar}>
-              Recuperar minha senha
+              Confirmar
             </button>
 
-            <Link href="/login" className={styles.buttonLogin}>
-              <FaArrowLeft className={styles.arrowLeft} />
-              Voltar para o login
-            </Link>
+            <button type="submit" className={styles.buttonLogin}>
+              Reenviar código
+            </button>
           </div>
         </form>
       </div>
