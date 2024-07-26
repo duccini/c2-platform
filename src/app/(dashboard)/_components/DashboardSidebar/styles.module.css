@@ -1,0 +1,66 @@
+.sidebar {
+  color: var(--gray-400);
+  display: grid;
+  min-height: 100vh;
+}
+
+.sidebarHeader,
+.sidebarHeaderTitle,
+.sidebarHeader button {
+  display: flex;
+  align-items: center;
+}
+
+.sidebarHeader {
+  gap: 1.5rem;
+}
+
+.sidebarHeaderTitle {
+  gap: 8px;
+}
+
+.sidebarHeaderTitle p {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--gray-100);
+}
+
+.sidebarHeader button {
+  background-color: transparent;
+  border: 0;
+}
+
+.sidebarMenu h2,
+.sidebarSettings h2 {
+  font-weight: 500;
+  font-size: 0.65rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.sidebarMenu h2 {
+  padding-inline: 1.2rem;
+}
+
+.sidebarMenu nav {
+  display: grid;
+  gap: 1rem;
+}
+
+.sidebarSettings {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 470px;
+}
+
+.sidebarSettings h2 {
+  padding-inline: 0.6rem;
+}
+
+.logoutBtn {
+  background-color: #2a2525;
+  max-width: 220px;
+  border-radius: 0.5rem;
+}
