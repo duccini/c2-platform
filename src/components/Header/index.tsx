@@ -44,7 +44,7 @@ const Header = () => {
         </nav>
 
         <div className={styles.loginButton}>
-          <Link href="/">
+          <Link href="/login">
             <span>Login</span>
           </Link>
         </div>
