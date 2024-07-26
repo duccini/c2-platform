@@ -1,11 +1,8 @@
-.newUserContainer {
-  display: flex;
-}
-
 .containerForm {
   background: #232323;
   color: white;
-  width: 100vw;
+  width: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,10 +96,9 @@
   padding: 16px 10px 16px 10px;
   gap: 10px;
   border-radius: 12px;
-  opacity: 0px;
   margin-bottom: 20px;
   margin-top: 20px;
-  background: #eb4242;
+  background: #EB4242;
   color: white;
   border: none;
 

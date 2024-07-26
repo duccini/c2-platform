@@ -2,19 +2,18 @@ import styles from "./page.module.css";
 import Image from "next/image";
 
 import logoCodigoCerto from "public/images/codigocerto.svg";
-import BackgroundStyle from "@/components/Container-login/page";
+
 
 export default function RecuperarSenha() {
   return (
     <div className={styles.containerRecuperarSenha}>
-      <BackgroundStyle />
 
       <div className={styles.containerForm}>
         <div className={styles.subContainer}>
           <Image
             className={styles.logoContainer}
             src={logoCodigoCerto}
-            alt="Description"
+            alt="Logo Codigo Certo"
             width={60}
             height={40}
           />

@@ -1,11 +1,8 @@
-.containerRecuperarSenha {
-  display: flex;
-}
-
 .containerForm {
   background: #232323;
   color: white;
-  width: 100vw;
+  width: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,6 +48,10 @@
   margin-top: 20px;
 }
 
+.paragraphForm span {
+  font-weight: 800;
+}
+
 .formField {
   display: flex;
   margin-left: 40px;
@@ -88,7 +89,6 @@
   padding: 16px 10px 16px 10px;
   gap: 10px;
   border-radius: 12px;
-  opacity: 0px;
   margin-bottom: 20px;
   margin-top: 20px;
   margin-left: 80px;
@@ -115,7 +115,6 @@
   padding: 16px 10px 16px 10px;
   gap: 10px;
   border-radius: 12px;
-  opacity: 0px;
   margin-bottom: 20px;
   margin-top: 20px;
   margin-left: 80px;
