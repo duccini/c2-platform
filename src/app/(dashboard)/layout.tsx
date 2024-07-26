@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
+import styles from "./layout.module.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import DashboardSidebar from "./_components/DashboardSidebar";
 
 export const metadata: Metadata = {
   title: "Código Certo",
@@ -17,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={styles.layout}>
+        <DashboardSidebar />
+        <div className={styles.content}>{children}</div>
+      </body>
     </html>
   );
 }

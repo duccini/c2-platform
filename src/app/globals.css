@@ -9,6 +9,8 @@
   --gray-50: #fefeff;
   --gray-100: #f9f9f9;
   --gray-400: #a7a6a6;
+  --gray-500: #8a8c91;
+  --gray-600: #353535;
   --gray-700: #363636;
   --gray-800: #262626;
   --gray-900: #141414;
@@ -18,12 +20,17 @@
   --red-500: #e63939;
   --red-700: #bf1313;
 
+  --brown-100: #757272;
+  --brown-200: #423838;
+  --brown-400: #1f1919;
+  --brown-700: #191414;
+  --brown-900: #110d0d;
+
   /* cores para a seção diversidade adicionadas */
   --purple-500: rgba(240, 135, 255, 1);
   --purple-600: rgba(184, 82, 214, 1);
   --purple-700: rgba(138, 56, 163, 1);
 }
-
 
 main {
   width: 100%;
@@ -32,4 +39,12 @@ main {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
