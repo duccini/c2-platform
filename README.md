@@ -1,5 +1,11 @@
 ![Banner CodigoCerto](https://utfs.io/f/3b2340e8-5523-4aca-a549-0688fd07450e-j4edu.jfif)
 
+---
+
+[Live](https://c2-platform.vercel.app/)
+
+---
+
 <p align="center"> <strong>Bem-vindo ao repositório da Equipe de Frontend Código Certo Coders 02!</strong></p>
   
 <p align="center"> Aqui você encontrará informações sobre nossa equipe e nossos projetos.</p>
