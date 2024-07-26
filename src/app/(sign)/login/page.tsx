@@ -1,22 +1,20 @@
 import styles from "./page.module.css";
 
-import logoCodigoCerto from "../../../../public/images/codigocerto.svg";
 import Link from "next/link";
-import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
+import { FaEnvelope, FaLock } from "react-icons/fa";
 import Image from "next/image";
-import BackgroundStyle from "@/components/Container-login/page";
+
+import logoCodigoCerto from "public/images/codigocerto.svg";
 
 export default function LoginUser() {
   return (
     <div className={styles.loginUserContainer}>
-      <BackgroundStyle />
-
       <div className={styles.containerForm}>
         <div className={styles.subContainer}>
           <Image
             className={styles.logoContainer}
             src={logoCodigoCerto}
-            alt="Description"
+            alt="Logo Codigo Certo"
             width={60}
             height={40}
           />
@@ -57,11 +55,11 @@ export default function LoginUser() {
             <span>Manter conectado</span>
           </div>
 
-          <div className={styles.submitContainer}>
-            <button type="submit" className={styles.submitButton}>
-              Criar conta
-            </button>
+          <button type="submit" className={styles.buttonSubmit}>
+            Criar conta
+          </button>
 
+          <div className={styles.submitContainer}>
             <p className={styles.signupLink}>
               Não tem uma conta?
               <span>

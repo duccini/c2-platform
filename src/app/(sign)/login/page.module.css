@@ -1,165 +1,161 @@
-.loginUserContainer {
-    display: flex;
-  }
-  
-  .containerForm {
-    background: #232323;
-    color: white;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .subContainer {
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 10px; 
-    margin: 0 auto; 
-    padding: 10px; 
-  }
-  
-  .logoContainer {
-    width: 60px; 
-    height: 40px; 
-  }
-  
-  .titleContainerForm {
-    font-size: 24px; 
-    font-weight: bold; 
-    margin: 0; 
-    white-space: nowrap; 
-  }
-  
-  .titleForm {
-    margin-top: 100px;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 29.05px;
-    letter-spacing: -0.02em;
-    text-align: left;
-  }
-  
-  .paragraphForm {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 20px;
-    text-align: left;
-    margin-bottom: 50px;
-    margin-top: 20px;
-  }
-  
-  .formField {
-    display: flex; 
-    align-items: center; 
-    background-color: #121212; 
-    border: 1px solid #3b3b3b;
-    padding: 10px; 
-    border-radius: 12px; 
-    margin-bottom: 15px; 
-    width: 500px;
-  }
-  
-  .paragraphField {
-    margin: 0; 
-    color: white; 
-    margin: 10px 0 10px 0;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19.36px;
-    text-align: left;
-  }
-  
-  .icon {
-    color: rgb(95, 95, 95); 
-    margin-right: 10px; 
-  }
-  
-  .formField input {
-    flex-grow: 1; 
-    background: none; 
-    border: none; 
-    color: white; 
-    padding: 5px; 
-    outline: none; 
-  }
-  
-  .submitContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .submitButton {
-    width: 366px;
-    height: 51px;
-    padding: 16px 10px 16px 10px;
-    gap: 10px;
-    border-radius: 12px;
-    opacity: 0px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    background: #eb4242;
-    color: white;
-    border: none;
-  
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 19.36px;
-  }
-  
-  .submitButton:hover {
-    background: #872525;
-    cursor: pointer;
-  }
-  
-  .signupLink {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19.36px;
-    margin: 10px 10px 10px 10px;
-    color: #787878;
-  }
-  
-  .linkLogin {
-    margin-left: 10px;
-    color: white;
-  }
-  
-  .checkbox {
-    display: flex;
-  }
-  
-  .checkbox span {
-    margin-left: 10px;
-  }
-  
-  .checkbox input[type="checkbox"] {
-    width: 20px; 
-    height: 20px;
-    appearance: none; 
-    background-color: black; 
-    border: 1px solid #000; 
-  }
-  
-  .checkbox input[type="checkbox"]:checked {
-    background-color: black; 
-    position: relative; 
-  }
-  
-  .checkbox input[type="checkbox"]:checked::after {
-    content: ''; 
-    position: absolute;
-    left: 6px; 
-    top: 2px;  
-    width: 6px;
-    height: 12px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
-  
-  
+.containerForm {
+  background: #232323;
+  color: white;
+  width: 100vh;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.subContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.logoContainer {
+  width: 60px;
+  height: 40px;
+}
+
+.titleContainerForm {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.titleForm {
+  margin-top: 100px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 29.05px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.paragraphForm {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.formField {
+  display: flex;
+  align-items: center;
+  background-color: #121212;
+  border: 1px solid #3b3b3b;
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  width: 500px;
+}
+
+.paragraphField {
+  margin: 0;
+  color: white;
+  margin: 10px 0 10px 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  text-align: left;
+}
+
+.icon {
+  color: rgb(95, 95, 95);
+  margin-right: 10px;
+}
+
+.formField input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  color: white;
+  padding: 5px;
+  outline: none;
+}
+
+.submitContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.buttonSubmit {
+  width: 366px;
+  height: 51px;
+  padding: 16px 10px 16px 10px;
+  gap: 10px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background: #EB4242;
+  color: white;
+  border: none;
+
+  margin-left: 70px;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.36px;
+}
+
+.buttonSubmit:hover {
+  background: #872525;
+  cursor: pointer;
+}
+
+.signupLink {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  margin: 10px 10px 10px 10px;
+  color: #787878;
+}
+
+.linkLogin {
+  margin-left: 10px;
+  color: white;
+}
+
+.checkbox {
+  display: flex;
+}
+
+.checkbox span {
+  margin-left: 10px;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  background-color: black;
+  border: 1px solid #000;
+}
+
+.checkbox input[type="checkbox"]:checked {
+  background-color: black;
+  position: relative;
+}
+
+.checkbox input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
