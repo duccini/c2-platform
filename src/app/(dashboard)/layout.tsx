@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/app/globals.css";
+import "../globals.css";
 import styles from "./layout.module.css";
 
 import DashboardSidebar from "./_components/DashboardSidebar";
