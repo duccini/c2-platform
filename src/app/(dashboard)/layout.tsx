@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
+import styles from "./layout.module.css";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
+import DashboardSidebar from "./_components/DashboardSidebar";
 
 export const metadata: Metadata = {
   title: "Código Certo",
@@ -20,10 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+      <body className={styles.layout}>
+        <DashboardSidebar />
+        <div className={styles.content}>{children}</div>
       </body>
     </html>
   );

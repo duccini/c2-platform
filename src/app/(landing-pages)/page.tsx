@@ -7,8 +7,8 @@ import styles from "./page.module.css";
 
 // import audio from "../../public/audio/Marion.Barfs-Clint.Mansell.mp3";
 
-import playAudioIcon from "../../public/images/volume-high-solid.svg";
-import stopAudioIcon from "../../public/images/volume-xmark-solid.svg";
+import playAudioIcon from "public/images/volume-high-solid.svg";
+import stopAudioIcon from "public/images/volume-xmark-solid.svg";
 import VolumeHigh from "@/components/VolumeHigh";
 import VolumeXMark from "@/components/VolumeXMark";
 
