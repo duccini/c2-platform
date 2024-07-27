@@ -1,0 +1,120 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr; /* Uma coluna única por padrão */
+  gap: 20px; /* Espaçamento entre as colunas */
+  padding: 50px 20px; /* Padding ajustado para telas menores */
+  max-width: 100%; /* Ocupar toda a largura disponível */
+  margin: 0 auto;
+  background-color: var(--gray-900);
+}
+
+@media (min-width: 768px) {
+  .section {
+    grid-template-columns: 1fr 1fr; /* Duas colunas em telas maiores */
+    padding: 72px 40px; /* Padding ajustado para telas maiores */
+  }
+}
+
+@media (min-width: 360px) {
+  /* Media query para iPhone SE */
+  .section {
+    padding: 60px 20px;
+  }
+}
+
+@media (min-width: 414px) {
+  /* Media query para iPhone XR */
+  .section {
+    padding: 70px 30px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 420px) {
+  /* Media query para iPhone 12 Pro e modelos similares */
+  .section {
+    padding: 70px 40px;
+  }
+}
+
+@media (min-width: 428px) {
+  /* Media query para iPhone 14 Pro Max */
+  .section {
+    padding: 80px 50px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 740px) {
+  /* Media query para Samsung Galaxy S8+ */
+  .section {
+    padding: 70px 60px;
+  }
+}
+
+.imageWrapper {
+  display: grid;
+  grid-template-areas:
+    "image1 image2"
+    "image3 image4";
+  gap: 20px;
+  padding: 0 30px; /* Adicionado padding para garantir espaço nas laterais */
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .imageWrapper {
+    grid-template-areas:
+      "image1"
+      "image2"
+      "image3"
+      "image4";
+  }
+}
+
+@media (max-width: 480px) {
+  .imageWrapper img {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px; /* Espaçamento entre os blocos de texto */
+  padding: 0 30px; /* Padding para afastar o texto das bordas */
+}
+
+.textBlock {
+  margin-bottom: 20px;
+}
+
+.leftAligned {
+  text-align: left; /* Alinhar o texto à esquerda */
+}
+
+.rightAligned {
+  text-align: right; /* Alinhar o texto à direita */
+}
+
+.title {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px; /* Tamanho da fonte ajustado para telas menores */
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--text-color-primary);
+  margin-bottom: 10px;
+}
+
+.text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; /* Tamanho da fonte ajustado para telas menores */
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color-primary);
+}

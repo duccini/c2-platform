@@ -1,0 +1,281 @@
+.heroContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: auto;
+  padding-inline: 2rem;
+  min-height: calc(100vh - 5rem);
+  max-width: 1280px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+  gap: 3rem;
+}
+
+.title {
+  font: 700 3rem "Inter", sans-serif;
+  line-height: 56px;
+  text-align: left;
+  background: linear-gradient(
+    90.21deg,
+    var(--purple-500) 0.05%,
+    var(--purple-600) 39.61%,
+    var(--purple-700) 91.8%
+  );
+  color: transparent;
+  background-clip: text;
+}
+
+.paragraph {
+  color: var(--text-color-primary);
+  font: 400 1.5rem "Noto Sans", sans-serif;
+  text-align: left;
+  width: 100%; /* Ajuste para ocupar toda a largura disponível */
+  max-width: 550px; /* Limitando a largura máxima do parágrafo */
+  margin-top: 1rem; /* Espaço superior ajustado */
+}
+
+.imageSection {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: relative;
+  height: 100vh;
+}
+
+.WomanImage {
+  position: relative;
+  bottom: 0; 
+  z-index: 10;
+  width: 100%; /* Ajustando para ocupar toda a largura disponível */
+  max-width: 690px; /* Limitando a largura máxima da imagem */
+  height: auto; /* Altura ajustada automaticamente */
+  width: 690px;
+  height: 619px;
+}
+
+.elipse {
+  position: absolute;
+  bottom: 0; /* Garantindo que comece na borda inferior */
+  right: 110px;
+  transform: rotate(0.099deg);
+  flex-shrink: 0;
+  border-radius: 410px;
+  background-color: var(--purple-500);
+  filter: blur(40px);
+  z-index: 5;
+  width: 258.16px;
+  height: 387.36px;
+  right: 215px;
+}
+
+/* Ajustes para telas menores que 1024px */
+@media (max-width: 1024px) {
+  .heroContent {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 1rem;
+    min-height: auto; /* Ajuste para altura automática */
+  }
+
+  .title {
+    margin-top: 5rem;
+    text-align: center;
+  }
+
+  .paragraph {
+    text-align: center;
+  }
+
+  .imageSection {
+    margin-block: 2rem; /* Espaço menor entre a imagem e o texto */
+    align-items: center; /* Centralizando a imagem verticalmente */
+    height: auto; /* Altura ajustada automaticamente */
+  }
+
+  .WomanImage {
+    width: 100%; /* Ajustando a largura da imagem para ocupar toda a tela */
+    max-width: 600px;
+    max-height: 500px;
+    margin-bottom: -30px;
+    left: 40px;
+  }
+
+  .elipse {
+    bottom: -20px;
+    right: 0;
+    margin: auto;
+    height: 360px;
+    width: 250px;
+    margin-bottom: 10px;
+    left: 40px;
+  }
+}
+
+/* Ajustes para telas menores que 768px */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+    line-height: 48px;
+  }
+
+  .paragraph {
+    font-size: 1.25rem;
+    line-height: 36px;
+  }
+
+  .WomanImage {
+    max-width: 650px; /* Limitando a largura máxima da imagem */
+  }
+
+  .elipse {
+    width: 200px;
+    height: 300px;
+    margin-bottom: 0;
+  }
+}
+
+/* Ajustes para telas menores que 480px */
+@media (max-width: 480px) {
+  .heroContent {
+    padding-inline: 1rem; /* Espaçamento horizontal reduzido */
+  }
+
+  .title {
+    font-size: 2rem;
+    line-height: 36px;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+    line-height: 32px;
+  }
+
+  .imageSection {
+    margin-block: 2rem; /* Espaço menor entre a imagem e o texto */
+  }
+
+  .WomanImage {
+    max-width: 200px; /* Limitando a largura máxima da imagem */
+  }
+
+  .elipse {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+/* Media queries para dispositivos específicos */
+@media (max-width: 375px) {
+  .title {
+    font-size: 1.75rem;
+    line-height: 32px;
+  }
+
+  .paragraph {
+    font-size: 0.875rem;
+    line-height: 28px;
+  }
+
+  .WomanImage {
+    max-width: 180px; /* Limitando a largura máxima da imagem */
+  }
+
+  .elipse {
+    width: 120px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 414px) {
+  .title {
+    font-size: 2rem;
+    line-height: 36px;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+    line-height: 32px;
+  }
+
+  .WomanImage {
+    max-width: 220px; /* Limitando a largura máxima da imagem */
+  }
+
+  .elipse {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 390px) {
+  .title {
+    font-size: 1.875rem;
+    line-height: 34px;
+  }
+
+  .paragraph {
+    font-size: 0.9375rem;
+    line-height: 30px;
+  }
+
+  .WomanImage {
+    max-width: 200px; /* Limitando a largura máxima da imagem */
+  }
+
+  .elipse {
+    width: 140px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 430px) {
+  .title {
+    font-size: 2.125rem;
+    line-height: 38px;
+  }
+
+  .paragraph {
+    font-size: 1.0625rem;
+    line-height: 34px;
+  }
+
+  .WomanImage {
+    max-width: 430px;
+    max-height: 350px;
+    left: 20px;
+  }
+
+  .elipse {
+    width: 160px;
+    height: 210px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.625rem;
+    line-height: 30px;
+  }
+
+  .paragraph {
+    font-size: 0.8125rem;
+    line-height: 26px;
+  }
+
+  .WomanImage {
+    max-width: 460px;
+  }
+
+  .elipse {
+    width: 110px;
+    height: 160px;
+  }
+}
