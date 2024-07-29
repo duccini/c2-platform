@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Ana Paula Queiroz",
+    "team": "Equipe Red",
+    "track": "Profissional",
+    "permission": "Administrador",
+    "role": "Front-End"
+  },
+  {
+    "id": 2,
+    "name": "Matheus Garcia",
+    "team": "Equipe Blue",
+    "track": "Inicial",
+    "permission": "Usuário",
+    "role": "UX/UI"
+  },
+  {
+    "id": 3,
+    "name": "Lucas Soares",
+    "team": "Equipe Purple",
+    "track": "Inicial",
+    "permission": "Mentor",
+    "role": "Back-End"
+  },
+  {
+    "id": 4,
+    "name": "Gabriela S. Abreu",
+    "team": "Equipe Green",
+    "track": "Profissional",
+    "permission": "Administrador",
+    "role": "Data Science"
+  },
+  {
+    "id": 5,
+    "name": "Beatriz Ferreira",
+    "team": "Equipe Yellow",
+    "track": "Inicial",
+    "permission": "Mentor",
+    "role": "Fullstack"
+  },
+  {
+    "id": 6,
+    "name": "Gabriel Souza",
+    "team": "Equipe Black",
+    "track": "Profissional",
+    "permission": "Usuário",
+    "role": "Front-End"
+  },
+  {
+    "id": 7,
+    "name": "Rafael M. Santos",
+    "team": "Equipe Purple",
+    "track": "Profissional",
+    "permission": "Usuário",
+    "role": "UX/UI"
+  },
+  {
+    "id": 8,
+    "name": "Thiago Rodrigues",
+    "team": "Equipe Yellow",
+    "track": "Inicial",
+    "permission": "Administrador",
+    "role": "Front-End"
+  },
+  {
+    "id": 9,
+    "name": "Elisa A. Ferreira",
+    "team": "Equipe White",
+    "track": "Inicial",
+    "permission": "Mentor",
+    "role": "Fullstack"
+  },
+  {
+    "id": 10,
+    "name": "Pedro Araújo",
+    "team": "Equipe Black",
+    "track": "Inicial",
+    "permission": "Usuário",
+    "role": "UX/UI"
+  },
+  {
+    "id": 11,
+    "name": "Henrique Moreira",
+    "team": "Equipe White",
+    "track": "Profissional",
+    "permission": "Administrador",
+    "role": "Back-End"
+  },
+  {
+    "id": 12,
+    "name": "Maria Fernanda Lima",
+    "team": "Equipe Red",
+    "track": "Profissional",
+    "permission": "Mentor",
+    "role": "Fullstack"
+  }
+]

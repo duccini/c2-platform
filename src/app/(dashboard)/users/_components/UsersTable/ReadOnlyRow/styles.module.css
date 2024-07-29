@@ -1,0 +1,22 @@
+.tableBody {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.tableBody:nth-child(odd) {
+  background-color: var(--brown-400);
+}
+
+.actionBtns {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.actionBtn {
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--gray-500);
+  border: 0;
+}
