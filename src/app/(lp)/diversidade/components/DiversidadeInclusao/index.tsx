@@ -1,7 +1,4 @@
 import Image from "next/image";
-
-import imagemInclusao from "public/images/imagem-inclusao.png";
-
 import styles from "./styles.module.css";
 
 const DiversidadeInclusao = () => {
@@ -9,7 +6,7 @@ const DiversidadeInclusao = () => {
     <section className={styles.section}>
       <div className={styles.imageContainer}>
         <Image
-          src={imagemInclusao}
+          src="/images/img-inclusão.svg"
           alt="Diversidade e Inclusao"
           className={styles.image}
           width={1120}
@@ -17,12 +14,11 @@ const DiversidadeInclusao = () => {
           quality={100}
           priority
         />
-        <h2 className={styles.title}>Diversidade e Inclusão</h2>
       </div>
       <div className={styles.textContainer}>
+        <h2 className={styles.title}>Diversidade e Inclusão</h2>
         <p className={styles.paragraph}>
-          Em nossa comunidade, reconhecemos que a diversidade é uma força
-          poderosa que impulsiona a inovação, a criatividade e o progresso.
+          Nós reconhecemos que a diversidade é uma força poderosa que impulsiona a inovação, criatividade e progresso.
         </p>
       </div>
     </section>

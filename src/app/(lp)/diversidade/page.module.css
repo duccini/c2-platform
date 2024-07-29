@@ -18,21 +18,25 @@ body, html {
  
   body {
     font-size: 14px; 
+    overflow-x: hidden;
   }
 
   .main {
     padding: 15px;
     gap: 15px;
+    overflow-x: hidden;
   }
 }
 
 @media (max-width: 480px) {
   body {
     font-size: 12px;
+    overflow-x: hidden;
   }
 
   .main {
     padding: 10px;
     gap: 10px;
+    overflow-x: hidden;
   }
 }
