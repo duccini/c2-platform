@@ -1,8 +1,7 @@
 "use client";
 
-import { ChangeEvent, FormEvent, Fragment, MouseEvent, useState } from "react";
-import data from "../../dataMock.json";
-import { UserProps } from "../../_utils/user.type";
+import { Fragment, useRef } from "react";
+import { useUsers } from "../../_hooks/useUsers";
 
 import FilterBtn from "./FilterBtn";
 import ReadOnlyRow from "./ReadOnlyRow";
@@ -11,25 +10,19 @@ import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
 import styles from "./styles.module.css";
 
-export type EditFormData = {
-  name: string;
-  team: string;
-  track: string;
-  permission: string;
-  role: string;
-};
-
 const UsersTable = () => {
-  const [user, setUser] = useState<UserProps[]>(data);
-  const [search, setSearch] = useState("");
-  const [editUserId, setEditUserId] = useState<number | null>(null);
-  const [editFormData, setEditFormData] = useState<EditFormData>({
-    name: "",
-    team: "",
-    track: "",
-    permission: "",
-    role: "",
-  });
+  const inputRef = useRef<HTMLInputElement>(null);
+  const {
+    filteredUser,
+    editUserId,
+    editFormData,
+    setSearch,
+    handleEditFormChange,
+    handleEditFormSubmit,
+    handleEditClick,
+    handleCancelClick,
+    handleDeleteClick,
+  } = useUsers();
 
   const columns: string[] = [
     "Nome",
@@ -39,87 +32,6 @@ const UsersTable = () => {
     "Função",
     "Ações",
   ];
-
-  const filteredUser = user.filter((user) => {
-    return search.toLowerCase() === ""
-      ? user
-      : user.name.toLowerCase().includes(search);
-  });
-
-  const handleEditFormChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    e.preventDefault();
-
-    const fieldName = e.target.getAttribute("name") as keyof EditFormData;
-    const fieldValue: string = e.target.value;
-
-    const newFormData: EditFormData = {
-      ...editFormData,
-      [fieldName]: fieldValue,
-    };
-
-    setEditFormData(newFormData);
-  };
-
-  const handleEditFormSubmit = (e: FormEvent) => {
-    e.preventDefault();
-
-    if (editUserId === null) {
-      return;
-    }
-
-    const editedUser = {
-      id: editUserId,
-      name: editFormData.name,
-      team: editFormData.team,
-      track: editFormData.track,
-      permission: editFormData.permission,
-      role: editFormData.role,
-    };
-
-    const newUser = [...user];
-
-    const index = user.findIndex((user) => user.id === editUserId);
-
-    if (index !== -1) {
-      newUser[index] = editedUser;
-      setUser(newUser);
-    }
-
-    setEditUserId(null);
-  };
-
-  const handleEditClick = (
-    e: MouseEvent<HTMLButtonElement>,
-    user: UserProps
-  ) => {
-    e.preventDefault();
-    setEditUserId(user.id);
-
-    const formValues = {
-      name: user.name,
-      team: user.team,
-      track: user.track,
-      permission: user.permission,
-      role: user.role,
-    };
-
-    setEditFormData(formValues);
-  };
-
-  const handleCancelClick = () => {
-    setEditUserId(null);
-  };
-
-  const handleDeleteClick = (userId: number) => {
-    const newUser: UserProps[] = [...user];
-
-    const index = user.findIndex((user) => user.id === userId);
-
-    if (index !== -1) {
-      newUser.splice(index, 1);
-      setUser(newUser);
-    }
-  };
 
   return (
     <>
@@ -144,9 +56,9 @@ const UsersTable = () => {
         <table className={styles.table}>
           <thead className={styles.thead}>
             <tr className={styles.tableHeader}>
-              {columns.map((column) => {
-                return <th key={column}>{column}</th>;
-              })}
+              {columns.map((column) => (
+                <th key={column}>{column}</th>
+              ))}
             </tr>
           </thead>
           <tbody className={styles.tbody}>
@@ -154,6 +66,7 @@ const UsersTable = () => {
               <Fragment key={user.id}>
                 {editUserId === user.id ? (
                   <EditableRow
+                    ref={inputRef}
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
                     handleCancelClick={handleCancelClick}

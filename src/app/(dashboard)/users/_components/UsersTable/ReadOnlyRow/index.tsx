@@ -5,7 +5,7 @@ import { FaTrash } from "react-icons/fa";
 
 import styles from "./styles.module.css";
 
-interface UserPropsInterface {
+interface ReadOnlyRowProps {
   user: UserProps;
   handleEditClick: (e: MouseEvent<HTMLButtonElement>, user: UserProps) => void;
   handleDeleteClick: (userId: number) => void;
@@ -15,7 +15,7 @@ const ReadOnlyRow = ({
   user,
   handleEditClick,
   handleDeleteClick,
-}: UserPropsInterface) => {
+}: ReadOnlyRowProps) => {
   return (
     <tr className={styles.tableBody}>
       <td>{user.name}</td>
