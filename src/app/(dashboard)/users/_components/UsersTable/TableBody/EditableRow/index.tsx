@@ -1,5 +1,5 @@
 import { ChangeEvent, forwardRef, useEffect, useRef } from "react";
-import { EditFormData } from "../../../_utils/form.type";
+import { EditFormData } from "@/app/(dashboard)/users/_utils/form.type";
 import { FaCheck, FaXmark } from "react-icons/fa6";
 
 import styles from "./styles.module.css";

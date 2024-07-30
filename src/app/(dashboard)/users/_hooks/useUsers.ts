@@ -1,6 +1,6 @@
 import {
   useState,
-  useMemo,
+  useEffect,
   useCallback,
   ChangeEvent,
   FormEvent,
@@ -11,7 +11,7 @@ import { EditFormData } from "../_utils/form.type";
 import data from "../dataMock.json";
 
 export const useUsers = () => {
-  const [user, setUser] = useState<UserProps[]>(data);
+  const [users, setUsers] = useState<UserProps[]>(data);
   const [search, setSearch] = useState("");
   const [editUserId, setEditUserId] = useState<number | null>(null);
   const [editFormData, setEditFormData] = useState<EditFormData>({
@@ -21,13 +21,25 @@ export const useUsers = () => {
     permission: "",
     role: "",
   });
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const filteredUser = useMemo(() => {
-    return user.filter(
-      (user) =>
-        search.toLowerCase() === "" || user.name.toLowerCase().includes(search)
-    );
-  }, [user, search]);
+  const usersPerPage = 12;
+
+  const filteredData = users.filter(
+    (user) => !search || user.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const lastUserIndex = currentPage * usersPerPage;
+  const firstUserIndex = lastUserIndex - usersPerPage;
+  const filteredUsers = filteredData.slice(firstUserIndex, lastUserIndex);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search]);
+
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   const handleEditFormChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>): void => {
@@ -45,13 +57,10 @@ export const useUsers = () => {
       e.preventDefault();
       if (editUserId === null) return;
 
-      const updatedUser = {
-        id: editUserId,
-        ...editFormData,
-      };
+      const updatedUser = { id: editUserId, ...editFormData };
 
-      setUser((prevUser) =>
-        prevUser.map((user) => (user.id === editUserId ? updatedUser : user))
+      setUsers((prevUsers) =>
+        prevUsers.map((user) => (user.id === editUserId ? updatedUser : user))
       );
       setEditUserId(null);
     },
@@ -77,16 +86,26 @@ export const useUsers = () => {
     setEditUserId(null);
   }, []);
 
-  const handleDeleteClick = useCallback((userId: number): void => {
-    setUser((prevUser) => prevUser.filter((user) => user.id !== userId));
-  }, []);
+  const handleDeleteClick = useCallback(
+    (userId: number): void => {
+      if (filteredUsers.length === 1 && currentPage !== 1) {
+        setCurrentPage((prev) => prev - 1);
+      }
+
+      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
+    },
+    [filteredUsers.length, currentPage]
+  );
 
   return {
-    user,
     search,
+    usersPerPage,
+    currentPage,
+    filteredData,
+    paginate,
     editUserId,
     editFormData,
-    filteredUser,
+    filteredUsers,
     setSearch,
     handleEditFormChange,
     handleEditFormSubmit,

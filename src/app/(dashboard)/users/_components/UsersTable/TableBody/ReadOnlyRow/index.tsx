@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import { UserProps } from "../../../_utils/user.type";
+import { UserProps } from "@/app/(dashboard)/users/_utils/user.type";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
 

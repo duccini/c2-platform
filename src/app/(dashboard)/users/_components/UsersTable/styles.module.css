@@ -49,16 +49,6 @@
   margin: 0.5em 0 0.75em;
 }
 
-.tableHeader {
-  background-color: var(--brown-900);
-  font-size: 1.25rem;
-}
-
-.tbody > tr > :nth-child(4),
-.thead > tr > :nth-child(4) {
-  background-color: var(--brown-300);
-}
-
 .table td {
   border-block-start: 1px solid var(--gray-800);
 }

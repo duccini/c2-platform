@@ -1,19 +1,22 @@
 "use client";
 
-import { Fragment, useRef } from "react";
 import { useUsers } from "../../_hooks/useUsers";
 
-import FilterBtn from "./FilterBtn";
-import ReadOnlyRow from "./ReadOnlyRow";
-import EditableRow from "./EditableRow";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import FilterBtn from "./FilterBtn";
+import TableHeader from "./TableHeader";
+import TableBody from "./TableBody";
+import Pagination from "./Pagination";
 
 import styles from "./styles.module.css";
 
 const UsersTable = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
   const {
-    filteredUser,
+    usersPerPage,
+    currentPage,
+    filteredData,
+    paginate,
+    filteredUsers,
     editUserId,
     editFormData,
     setSearch,
@@ -32,6 +35,8 @@ const UsersTable = () => {
     "Função",
     "Ações",
   ];
+  const totalPages = Math.ceil(filteredData.length / usersPerPage);
+  const maxVisiblePages = 3;
 
   return (
     <>
@@ -54,35 +59,25 @@ const UsersTable = () => {
 
       <form onSubmit={handleEditFormSubmit}>
         <table className={styles.table}>
-          <thead className={styles.thead}>
-            <tr className={styles.tableHeader}>
-              {columns.map((column) => (
-                <th key={column}>{column}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className={styles.tbody}>
-            {filteredUser.map((user) => (
-              <Fragment key={user.id}>
-                {editUserId === user.id ? (
-                  <EditableRow
-                    ref={inputRef}
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
-                ) : (
-                  <ReadOnlyRow
-                    user={user}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
-                  />
-                )}
-              </Fragment>
-            ))}
-          </tbody>
+          <TableHeader columns={columns} />
+          <TableBody
+            users={filteredUsers}
+            editUserId={editUserId}
+            editFormData={editFormData}
+            handleEditFormChange={handleEditFormChange}
+            handleCancelClick={handleCancelClick}
+            handleEditClick={handleEditClick}
+            handleDeleteClick={handleDeleteClick}
+          />
         </table>
       </form>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        maxVisiblePages={maxVisiblePages}
+        paginate={paginate}
+      />
     </>
   );
 };
