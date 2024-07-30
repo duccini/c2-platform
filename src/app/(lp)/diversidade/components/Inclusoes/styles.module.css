@@ -10,8 +10,8 @@
 
 @media (min-width: 768px) {
   .section {
-    grid-template-columns: 1fr 1fr;
-    padding: 72px 40px;
+    grid-template-columns: 1fr;
+    padding: 78px 40px;
   }
 
   .mobileIcon {
