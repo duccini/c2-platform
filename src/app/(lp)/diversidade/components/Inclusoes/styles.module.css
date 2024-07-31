@@ -1,46 +1,56 @@
-/* Estilo do section principal */
-.section {
-  background: var(--gray-900); /* Cor de fundo desejada */
-  padding: 72px 160px; /* Espaçamento interno do section */
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 100vh; /* Garante que o section ocupe pelo menos a altura da tela */
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Alinha o conteúdo verticalmente */
-  overflow: hidden; /* Evita rolagem */
-}
-
-/* Container interno */
 .container {
+  width: 100%;
+  height: 100%;
+  padding: 72px 160px;
+  background: var(--gray-900);
   display: flex;
-  flex-direction: column; /* Alinha o conteúdo verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-  gap: 20px; /* Espaçamento entre os itens */
-  width: 100%;
-  max-width: 1200px; /* Limita a largura máxima */
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-/* Estilo das imagens */
-.imageContainer {
+.imageWrapper {
+  width: 564px;
+  height: 596px;
   position: relative;
-  width: 100%; /* Ajusta a largura para 100% do contêiner pai */
-  max-width: 564px; /* Largura máxima para as imagens */
-  height: auto; /* Ajusta a altura automaticamente para manter a proporção */
 }
 
-.img1, .img2, .img3, .img4 {
-  width: 100%;
-  height: auto;
-  display: block;
+.image1 {
+  width: 260px;
+  height: 160px;
+  position: absolute;
+  left: 259px;
+  top: 355px;
 }
 
-/* Estilo dos textos */
-.textContainer {
-  width: 100%; /* Ajusta a largura para 100% do contêiner pai */
-  max-width: 557px; /* Largura máxima para os textos */
-  margin: 0 auto; /* Centraliza horizontalmente */
-  padding: 0 20px; /* Espaçamento interno horizontal */
+.image2 {
+  width: 260px;
+  height: 179px;
+  position: absolute;
+  left: 22px;
+  top: 238px;
+}
+
+.image3 {
+  width: 260px;
+  height: 241px;
+  position: absolute;
+  left: 282px;
+  top: 65px;
+}
+
+.image4 {
+  width: 260px;
+  height: 186px;
+  position: absolute;
+  left: 22px;
+  top: 0;
+}
+
+.textWrapper {
+  width: 557px;
+  height: 581px;
+  position: relative;
 }
 
 .text1, .text2, .text3 {
@@ -48,8 +58,33 @@
   font-size: 20px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  margin-bottom: 20px; /* Espaçamento entre os blocos de texto */
-  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.text1 {
+  width: 502px;
+  height: 84px;
+  position: absolute;
+  left: 33px;
+  top: 46px;
+  text-align: right;
+}
+
+.text2 {
+  width: 502px;
+  height: 143px;
+  position: absolute;
+  left: 35px;
+  top: 205px;
+}
+
+.text3 {
+  width: 497px;
+  height: 113px;
+  position: absolute;
+  left: 35px;
+  top: 428px;
+  text-align: right;
 }
 
 .title1, .title2, .title3 {
@@ -58,67 +93,32 @@
   font-family: 'Inter', sans-serif;
   font-style: italic;
   font-weight: 800;
-  margin-bottom: 10px; /* Espaçamento abaixo dos títulos */
+  word-wrap: break-word;
 }
 
-/* Media Queries for Responsive Design */
-
-/* Smartphones (portrait and landscape) */
-@media (max-width: 767px) {
-  .section {
-    padding: 40px 20px;
-  }
-
-  .imageContainer {
-    max-width: 100%;
-    aspect-ratio: auto;
-  }
-
-  .text1, .text2, .text3 {
-    font-size: 16px;
-  }
-
-  .title1, .title2, .title3 {
-    font-size: 24px;
-  }
+.title1 {
+  width: 224px;
+  height: 33px;
+  position: absolute;
+  left: 22px;
+  top: 160px;
+  text-align: center;
 }
 
-/* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .section {
-    padding: 60px 40px;
-  }
-
-  .imageContainer {
-    max-width: 100%;
-    aspect-ratio: auto;
-  }
-
-  .text1, .text2, .text3 {
-    font-size: 18px;
-  }
-
-  .title1, .title2, .title3 {
-    font-size: 26px;
-  }
+.title2 {
+  width: 162px;
+  height: 33px;
+  position: absolute;
+  left: 382px;
+  top: 382px;
+  text-align: center;
 }
 
-/* Laptops and Desktops */
-@media (min-width: 1025px) {
-  .section {
-    padding: 72px 160px;
-  }
-
-  .imageContainer {
-    max-width: 564px;
-    aspect-ratio: 564 / 596; /* Mantém a proporção original */
-  }
-
-  .text1, .text2, .text3 {
-    font-size: 20px;
-  }
-
-  .title1, .title2, .title3 {
-    font-size: 30px;
-  }
+.title3 {
+  width: 140px;
+  height: 33px;
+  position: absolute;
+  left: 395px;
+  top: 0;
+  text-align: center;
 }
