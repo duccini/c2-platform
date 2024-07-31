@@ -2,17 +2,19 @@ import styles from "./page.module.css";
 import Image from "next/image";
 
 import logoCodigoCerto from "public/images/codigocerto.svg";
+import BackgroundStyle from "@/components/ContainerLogin/page";
 
 export default function RedefinirSenha() {
   return (
     <div className={styles.containerRedefinirSenha}>
+      <BackgroundStyle />
 
       <div className={styles.containerForm}>
         <div className={styles.subContainer}>
           <Image
             className={styles.logoContainer}
             src={logoCodigoCerto}
-            alt="Logo Codigo Certo"
+            alt="Description"
             width={60}
             height={40}
           />

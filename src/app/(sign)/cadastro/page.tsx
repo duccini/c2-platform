@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 import logoCodigoCerto from "public/images/codigocerto.svg";
+import BackgroundStyle from "@/components/ContainerLogin/page";
 
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import Link from "next/link";
@@ -9,13 +10,14 @@ import Link from "next/link";
 export default function CadastroUser() {
   return (
     <div className={styles.newUserContainer}>
+      <BackgroundStyle />
 
       <div className={styles.containerForm}>
         <div className={styles.subContainer}>
           <Image
             className={styles.logoContainer}
             src={logoCodigoCerto}
-            alt="Logo Codigo Certo"
+            alt="Description"
             width={60}
             height={40}
           />
