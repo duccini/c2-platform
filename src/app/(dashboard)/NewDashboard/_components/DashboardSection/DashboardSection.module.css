@@ -1,0 +1,172 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 32px 0 0 0;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 0;
+  height: 88px;
+  padding: 24px;
+  background: linear-gradient(180deg, var(--gray-700) 0%, var(--gray-900) 100%);
+  border-radius: 16px;
+  border: 1px solid var(--gray-600);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.cardHover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardHover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px var(--gray-800);
+}
+
+.cardContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.textWrapper {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.title {
+  color: var(--text-color-primary);
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word;
+}
+
+.subtitle {
+  color: var(--gray-500);
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 18px;
+  word-wrap: break-word;
+}
+
+/* Small devices */
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    height: auto;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .iconWrapper {
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .subtitle {
+    font-size: 10px;
+  }
+}
+
+/* Medium devices */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .container {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .card {
+    height: auto;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .iconWrapper {
+    width: 36px;
+    height: 36px;
+    padding: 9px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+}
+
+/* Large devices */
+@media (min-width: 1025px) {
+  .container {
+    gap: 16px;
+  }
+
+  .card {
+    height: 88px;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+}
