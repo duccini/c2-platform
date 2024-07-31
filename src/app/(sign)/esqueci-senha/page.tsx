@@ -4,17 +4,19 @@ import { FaArrowLeft, FaEnvelope, FaLock } from "react-icons/fa";
 import Image from "next/image";
 
 import logoCodigoCerto from "public/images/codigocerto.svg";
+import BackgroundStyle from "@/components/ContainerLogin/page";
 
 export default function EsqueciSenha() {
   return (
     <div className={styles.containerSenhaUser}>
+      <BackgroundStyle />
 
       <div className={styles.containerForm}>
         <div className={styles.subContainer}>
           <Image
             className={styles.logoContainer}
             src={logoCodigoCerto}
-            alt="Logo Codigo Certo"
+            alt="Description"
             width={60}
             height={40}
           />
