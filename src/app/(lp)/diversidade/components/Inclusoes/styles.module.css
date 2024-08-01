@@ -63,32 +63,32 @@
   .image:nth-child(1) {
     width: 260px;
     height: 160px;
-    left: 259px;
-    top: 355px;
+    left: 229px;
+    top: 395px;
     position: absolute;
   }
 
   .image:nth-child(2) {
     width: 260px;
     height: 179px;
-    left: 22px;
-    top: 238px;
+    left: 15px;
+    top: 268px;
     position: absolute;
   }
 
   .image:nth-child(3) {
     width: 260px;
     height: 241px;
-    left: 282px;
-    top: 65px;
+    left: 252px;
+    top: 90px;
     position: absolute;
   }
 
   .image:nth-child(4) {
     width: 260px;
     height: 186px;
-    left: 22px;
-    top: 0px;
+    left: 0px;
+    top: 10px;
     position: absolute;
   }
 
