@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-const Inclusoes: React.FC = () => {
+const Inclusoes: React.FC = () => { 
   return (
-<section className={styles.section}>
+    <section className={styles.section}>
       <div className={styles.imagesWrapper}>
-        <img className={styles.image} src="https://via.placeholder.com/260x160" alt="Image 1" />
-        <img className={styles.image} src="https://via.placeholder.com/260x179" alt="Image 2" />
-        <img className={styles.image} src="https://via.placeholder.com/260x241" alt="Image 3" />
-        <img className={styles.image} src="https://via.placeholder.com/260x186" alt="Image 4" />
+        <img className={styles.image} src="/images/diversidade4.png" alt="Image 1" />
+        <img className={styles.image} src="/images/diversidade3.png" alt="Image 2" />
+        <img className={styles.image} src="/images/diversidade2.png" alt="Image 3" />
+        <img className={styles.image} src="/images/diversidade1.png" alt="Image 4" />
       </div>
       <div className={styles.textWrapper}>
         <div className={styles.textItem}>
