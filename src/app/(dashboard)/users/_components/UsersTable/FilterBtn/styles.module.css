@@ -1,3 +1,7 @@
+.filterContainer {
+  position: relative;
+}
+
 .filterBtn {
   cursor: pointer;
   font-size: 0.875rem;
@@ -9,4 +13,64 @@
   gap: 0.5rem;
   padding: 9px 14.645px 9px 11px;
   border-radius: 100vw;
+}
+
+.dropdown {
+  text-align: center;
+  position: absolute;
+  max-height: 200px;
+  width: 150px;
+  display: grid;
+  gap: 1rem;
+  padding-block: 0.4rem;
+  right: 5px;
+  background-color: var(--brown-700);
+  border: 1px solid var(--gray-800);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dropdown::-webkit-scrollbar-track {
+  background: var(--brown-700);
+  border-radius: 8px;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+  background-color: var(--gray-500);
+  border-radius: 8px;
+  border: 2px solid var(--brown-700);
+}
+
+.dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray-400);
+}
+
+.option {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--gray-100);
+}
+
+.option:hover {
+  opacity: 0.9;
+}
+
+.clearIcon {
+  margin-top: 3px;
+  cursor: pointer;
+  color: var(--red-500);
 }

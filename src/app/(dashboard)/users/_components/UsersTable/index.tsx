@@ -1,13 +1,12 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useUsers } from "../../_hooks/useUsers";
-
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import FilterBtn from "./FilterBtn";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 import Pagination from "./Pagination";
-
 import styles from "./styles.module.css";
 
 const UsersTable = () => {
@@ -25,7 +24,32 @@ const UsersTable = () => {
     handleEditClick,
     handleCancelClick,
     handleDeleteClick,
+    uniqueTeams,
+    uniqueTracks,
+    uniqueRoles,
+    filter,
+    openFilter,
+    handleToggleFilter,
+    handleFilter,
+    handleClearFilter,
   } = useUsers();
+
+  const filterContainerRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        filterContainerRefs.current.every(
+          (ref) => ref && !ref.contains(event.target as Node)
+        )
+      ) {
+        handleToggleFilter("");
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [handleToggleFilter]);
 
   const columns: string[] = [
     "Nome",
@@ -51,9 +75,51 @@ const UsersTable = () => {
           />
         </div>
         <div className={styles.filterBtns}>
-          <FilterBtn text="trilha" />
-          <FilterBtn text="equipe" />
-          <FilterBtn text="função" />
+          <div
+            ref={(el) => {
+              filterContainerRefs.current[0] = el;
+            }}
+          >
+            <FilterBtn
+              text="Equipe"
+              options={uniqueTeams}
+              selectedFilter={filter.column === "equipe" ? filter.value : ""}
+              onFilter={handleFilter}
+              onClearFilter={handleClearFilter}
+              isOpen={openFilter === "equipe"}
+              onToggle={() => handleToggleFilter("equipe")}
+            />
+          </div>
+          <div
+            ref={(el) => {
+              filterContainerRefs.current[1] = el;
+            }}
+          >
+            <FilterBtn
+              text="Trilha"
+              options={uniqueTracks}
+              selectedFilter={filter.column === "trilha" ? filter.value : ""}
+              onFilter={handleFilter}
+              onClearFilter={handleClearFilter}
+              isOpen={openFilter === "trilha"}
+              onToggle={() => handleToggleFilter("trilha")}
+            />
+          </div>
+          <div
+            ref={(el) => {
+              filterContainerRefs.current[2] = el;
+            }}
+          >
+            <FilterBtn
+              text="Função"
+              options={uniqueRoles}
+              selectedFilter={filter.column === "função" ? filter.value : ""}
+              onFilter={handleFilter}
+              onClearFilter={handleClearFilter}
+              isOpen={openFilter === "função"}
+              onToggle={() => handleToggleFilter("função")}
+            />
+          </div>
         </div>
       </section>
 

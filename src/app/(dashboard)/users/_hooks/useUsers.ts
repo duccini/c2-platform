@@ -22,12 +22,35 @@ export const useUsers = () => {
     role: "",
   });
   const [currentPage, setCurrentPage] = useState(1);
+  const [filter, setFilter] = useState<{ column: string; value: string }>({
+    column: "",
+    value: "",
+  });
+  const [openFilter, setOpenFilter] = useState<string | null>(null);
 
   const usersPerPage = 12;
 
-  const filteredData = users.filter(
-    (user) => !search || user.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredData = users.filter((user) => {
+    const searchMatch =
+      !search || user.name.toLowerCase().includes(search.toLowerCase());
+
+    const columnKey =
+      filter.column === "equipe"
+        ? "team"
+        : filter.column === "trilha"
+        ? "track"
+        : filter.column === "função"
+        ? "role"
+        : "";
+
+    const userValue = user[columnKey as keyof UserProps];
+    const filterMatch =
+      !filter.column ||
+      (typeof userValue === "string" &&
+        userValue.toLowerCase() === filter.value.toLowerCase());
+
+    return searchMatch && filterMatch;
+  });
 
   const lastUserIndex = currentPage * usersPerPage;
   const firstUserIndex = lastUserIndex - usersPerPage;
@@ -35,7 +58,7 @@ export const useUsers = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [search]);
+  }, [search, filter]);
 
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -97,6 +120,23 @@ export const useUsers = () => {
     [filteredUsers.length, currentPage]
   );
 
+  const handleFilterChange = (column: string, value: string) => {
+    setFilter({ column, value });
+  };
+
+  const clearFilter = () => {
+    setFilter({ column: "", value: "" });
+    setOpenFilter(null);
+  };
+
+  const handleToggleFilter = (column: string) => {
+    setOpenFilter((prev) => (prev === column ? null : column));
+  };
+
+  const uniqueTeams = Array.from(new Set(users.map((user) => user.team)));
+  const uniqueTracks = Array.from(new Set(users.map((user) => user.track)));
+  const uniqueRoles = Array.from(new Set(users.map((user) => user.role)));
+
   return {
     search,
     usersPerPage,
@@ -112,5 +152,16 @@ export const useUsers = () => {
     handleEditClick,
     handleCancelClick,
     handleDeleteClick,
+    handleFilterChange,
+    clearFilter,
+    uniqueTeams,
+    uniqueTracks,
+    uniqueRoles,
+    filter,
+    openFilter,
+    setOpenFilter,
+    handleToggleFilter,
+    handleFilter: handleFilterChange,
+    handleClearFilter: clearFilter,
   };
 };
