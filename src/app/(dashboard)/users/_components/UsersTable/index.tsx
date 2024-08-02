@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { useUsers } from "../../_hooks/useUsers";
-import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
-import FilterBtn from "./FilterBtn";
+import FilterSection from "./FilterSection";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
+import NoDataMessage from "./NoDataMessage";
 import Pagination from "./Pagination";
+
 import styles from "./styles.module.css";
 
 const UsersTable = () => {
@@ -18,6 +18,7 @@ const UsersTable = () => {
     filteredUsers,
     editUserId,
     editFormData,
+    search,
     setSearch,
     handleEditFormChange,
     handleEditFormSubmit,
@@ -34,23 +35,6 @@ const UsersTable = () => {
     handleClearFilter,
   } = useUsers();
 
-  const filterContainerRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        filterContainerRefs.current.every(
-          (ref) => ref && !ref.contains(event.target as Node)
-        )
-      ) {
-        handleToggleFilter("");
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [handleToggleFilter]);
-
   const columns: string[] = [
     "Nome",
     "Equipe",
@@ -64,64 +48,18 @@ const UsersTable = () => {
 
   return (
     <>
-      <section className={styles.filters}>
-        <div className={styles.filterSearch}>
-          <HiOutlineMagnifyingGlass size={20} />
-          <input
-            className={styles.filterInput}
-            type="text"
-            placeholder="Buscar por nome..."
-            onChange={(e) => setSearch(e.target.value.toLowerCase())}
-          />
-        </div>
-        <div className={styles.filterBtns}>
-          <div
-            ref={(el) => {
-              filterContainerRefs.current[0] = el;
-            }}
-          >
-            <FilterBtn
-              text="Equipe"
-              options={uniqueTeams}
-              selectedFilter={filters["equipe"] || ""}
-              onFilter={handleFilter}
-              onClearFilter={() => handleClearFilter("equipe")}
-              isOpen={openFilter === "equipe"}
-              onToggle={() => handleToggleFilter("equipe")}
-            />
-          </div>
-          <div
-            ref={(el) => {
-              filterContainerRefs.current[1] = el;
-            }}
-          >
-            <FilterBtn
-              text="Trilha"
-              options={uniqueTracks}
-              selectedFilter={filters["trilha"] || ""}
-              onFilter={handleFilter}
-              onClearFilter={() => handleClearFilter("trilha")}
-              isOpen={openFilter === "trilha"}
-              onToggle={() => handleToggleFilter("trilha")}
-            />
-          </div>
-          <div
-            ref={(el) => {
-              filterContainerRefs.current[2] = el;
-            }}
-          >
-            <FilterBtn
-              text="Função"
-              options={uniqueRoles}
-              selectedFilter={filters["função"] || ""}
-              onFilter={handleFilter}
-              onClearFilter={() => handleClearFilter("função")}
-              isOpen={openFilter === "função"}
-              onToggle={() => handleToggleFilter("função")}
-            />
-          </div>
-        </div>
-      </section>
+      <FilterSection
+        search={search}
+        setSearch={setSearch}
+        filters={filters}
+        uniqueTeams={uniqueTeams}
+        uniqueTracks={uniqueTracks}
+        uniqueRoles={uniqueRoles}
+        openFilter={openFilter}
+        handleToggleFilter={handleToggleFilter}
+        handleFilter={handleFilter}
+        handleClearFilter={handleClearFilter}
+      />
 
       <form onSubmit={handleEditFormSubmit}>
         <table className={styles.table}>
@@ -137,13 +75,7 @@ const UsersTable = () => {
               handleDeleteClick={handleDeleteClick}
             />
           ) : (
-            <tbody>
-              <tr>
-                <td colSpan={columns.length} className={styles.noData}>
-                  Nenhum usuário encontrado...
-                </td>
-              </tr>
-            </tbody>
+            <NoDataMessage colSpan={columns.length} />
           )}
         </table>
       </form>
