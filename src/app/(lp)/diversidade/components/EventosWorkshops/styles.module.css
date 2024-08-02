@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px; /* Ajustado o padding para telas menores */
-  max-width: 100%; /* Ocupar toda a largura disponível */
+  padding: 40px 20px; 
+  max-width: 100%; 
   margin: 0 auto;
 }
 
@@ -78,7 +78,7 @@
   color: var(--red-700);
   text-align: center;
   font-family: "Inter", sans-serif;
-  font-size: 42px; 
+  font-size: 38px; 
   font-weight: 700;
   line-height: 1.5;
   max-width: 100%; 
@@ -126,7 +126,7 @@
 }
 
 .image {
-  max-width: 50%; 
+  max-width: 100%; 
   height: auto;
   margin-top: 0px;
 }

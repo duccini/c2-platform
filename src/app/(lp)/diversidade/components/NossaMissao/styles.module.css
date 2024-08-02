@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   padding: 2rem 3rem;
-  background-color: var(--white);
+  background-color: var(--gray-50);
   gap: 3rem;
   flex-direction: column;
   max-width: 1200px;
@@ -20,7 +20,7 @@
 
 .textContainer {
   text-align: center;
-  color: black;
+  color: var(--gray-950);
   font-family: 'Noto Sans', sans-serif;
   word-wrap: break-word;
   max-width: 600px;
