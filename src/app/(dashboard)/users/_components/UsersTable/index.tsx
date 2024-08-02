@@ -1,6 +1,6 @@
 "use client";
 
-import { useUsers } from "../../_hooks/useUsers";
+import useUsers from "../../_hooks/useUsers";
 import FilterSection from "./FilterSection";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
