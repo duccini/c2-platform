@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import "./page.css";
+import BackgroundStyle from "@/components/ContainerLogin/page";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,7 +18,10 @@ export default function LoginLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main>{children}</main>
+        <main>
+          <BackgroundStyle />
+          {children}
+        </main>
       </body>
     </html>
   );

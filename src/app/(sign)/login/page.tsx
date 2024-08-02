@@ -1,10 +1,11 @@
 import styles from "./page.module.css";
 
-import logoCodigoCerto from "../../../../public/images/codigocerto.svg";
 import Link from "next/link";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import Image from "next/image";
-import BackgroundStyle from "@/components/Container-login/page";
+
+import logoCodigoCerto from "public/images/codigocerto.svg";
+import BackgroundStyle from "@/components/ContainerLogin/page";
 
 export default function LoginUser() {
   return (

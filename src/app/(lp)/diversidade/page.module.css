@@ -1,3 +1,42 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif; 
+  overflow-x: hidden;
+}
+
 .main {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: hidden; 
+}
+
+@media (max-width: 768px) {
+ 
+  body {
+    font-size: 14px; 
+    overflow-x: hidden;
+  }
+
+  .main {
+    padding: 15px;
+    gap: 15px;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+    overflow-x: hidden;
+  }
+
+  .main {
+    padding: 10px;
+    gap: 10px;
+    overflow-x: hidden;
+  }
 }

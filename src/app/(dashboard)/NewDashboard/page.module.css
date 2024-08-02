@@ -1,0 +1,393 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--gray-900);
+  color: var(--text-color-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-color-primary);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .mainContent {
+    padding: 10px;
+  }
+}
+
+/* Estilos dos componentes */
+.navbar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.navLeft,
+.navSection,
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navItem {
+  padding: 4px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navTextInactive {
+  color: var(--rgba-white-40);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.navTextActive {
+  color: var(--gray-50);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.navSeparator {
+  color: var(--rgba-white-20);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.searchBar {
+  width: 306px;
+  padding: 10px 16px;
+  background: var(--rgba-white-03);
+  border: 1px solid var(--gray-600);
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.searchIcon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  opacity: 0.50;
+}
+
+.searchInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-color-primary);
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.50;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--text-color-primary);
+  opacity: 0.50;
+}
+
+.profile {
+  padding: 12px 16px;
+  background: var(--rgba-white-04);
+  border: 1px solid var(--gray-600);
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.profileContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profileImage {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(0deg, var(--gray-400) 0%, var(--gray-400) 100%);
+  border-radius: 50%;
+}
+
+.profileName {
+  color: var(--text-color-primary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.chevronDown {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.chevronDown img {
+  width: 8px;
+  height: 4px;
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  border: 1px solid var(--rgba-white-40);
+}
+
+.profileMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--rgba-white-10);
+  border: 1px solid var(--gray-600);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.profileMenuItem {
+  padding: 8px 16px;
+  color: var(--text-color-primary);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.profileMenuItem:hover {
+  background: var(--rgba-white-10);
+}
+
+.frameContainer {
+  width: 1257px;
+  height: 100%;
+  padding: 32px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  opacity: 1;
+}
+
+.cardContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card {
+  height: 320px;
+  background: var(--gray-700);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+}
+
+.imageContainer {
+  height: 169px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.infoContainer {
+  height: 135px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-bottom: 24px;
+}
+
+.cardTitle {
+  color: var(--text-color-primary);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.avatarContainer {
+  display: flex;
+  gap: 4px;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(0deg, var(--gray-400) 0%, var(--gray-400) 100%);
+}
+
+.teamName {
+  color: var(--text-color-primary);
+  font-size: 12px;
+}
+
+.status {
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--gray-600);
+  color: var(--text-color-primary);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dateIcon img {
+  width: 16px;
+  height: 16px;
+}
+
+.dateText {
+  color: var(--gray-500);
+  font-size: 12px;
+}
+
+.filters {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  height: 43px;
+  flex-direction: row;
+}
+
+.filterItem {
+  padding: 12px 16px;
+  border-radius: 99px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filterItem.active {
+  background: var(--gray-50);
+  color: var(--gray-900);
+}
+
+.filterItem:not(.active) {
+  background: var(--gray-900);
+  color: var(--gray-50);
+}
+
+.cardContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.textWrapper {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.cardTitle {
+  color: var(--text-color-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word;
+}
+
+.subtitle {
+  color: var(--gray-500);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  word-wrap: break-word;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+}

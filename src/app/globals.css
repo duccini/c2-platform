@@ -27,7 +27,17 @@
   --brown-700: #191414;
   --brown-900: #110d0d;
 
+  /* cores para Dashboard */
+
+  --rgba-white-40: rgba(255, 255, 255, 0.40);
+  --rgba-white-20: rgba(255, 255, 255, 0.20);
+  --rgba-white-3: rgba(255, 255, 255, 0.03);
+  --rgba-white-50: rgba(255, 255, 255, 0.50);
+  --rgba-white-10: rgba(255, 255, 255, 0.10);
+  --rgba-white-4: rgba(255, 255, 255, 0.04);
+
   /* cores para a seção diversidade adicionadas */
+
   --purple-500: rgba(240, 135, 255, 1);
   --purple-600: rgba(184, 82, 214, 1);
   --purple-700: rgba(138, 56, 163, 1);

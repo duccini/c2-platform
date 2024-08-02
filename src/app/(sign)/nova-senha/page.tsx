@@ -1,8 +1,8 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 
-import logoCodigoCerto from "../../../../public/images/codigocerto.svg";
-import BackgroundStyle from "@/components/Container-login/page";
+import logoCodigoCerto from "public/images/codigocerto.svg";
+import BackgroundStyle from "@/components/ContainerLogin/page";
 
 export default function RedefinirSenha() {
   return (
