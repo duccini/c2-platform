@@ -69,8 +69,11 @@
   opacity: 0.9;
 }
 
-.clearIcon {
+.clearIcon,
+.chevronIcon {
   margin-top: 3px;
-  cursor: pointer;
+}
+
+.clearIcon {
   color: var(--red-500);
 }

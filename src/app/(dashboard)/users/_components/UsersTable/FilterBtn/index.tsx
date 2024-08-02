@@ -1,5 +1,5 @@
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaChevronDown } from "react-icons/fa";
 import styles from "./styles.module.css";
 
 interface FilterBtnProps {
@@ -36,12 +36,14 @@ const FilterBtn = ({
       <button className={styles.filterBtn} onClick={onToggle}>
         <TbAdjustmentsHorizontal size={26} />
         <span>{selectedFilter || `Filtrar por ${text}`}</span>
-        {selectedFilter && (
+        {selectedFilter ? (
           <FaTimes
             className={styles.clearIcon}
             size={16}
             onClick={handleClearFilterClick}
           />
+        ) : (
+          <FaChevronDown className={styles.chevronIcon} size={16} />
         )}
       </button>
       <div className={`${styles.dropdown} ${isOpen ? styles.open : ""}`}>

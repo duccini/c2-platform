@@ -22,10 +22,7 @@ export const useUsers = () => {
     role: "",
   });
   const [currentPage, setCurrentPage] = useState(1);
-  const [filter, setFilter] = useState<{ column: string; value: string }>({
-    column: "",
-    value: "",
-  });
+  const [filters, setFilters] = useState<{ [key: string]: string }>({});
   const [openFilter, setOpenFilter] = useState<string | null>(null);
 
   const usersPerPage = 12;
@@ -34,20 +31,22 @@ export const useUsers = () => {
     const searchMatch =
       !search || user.name.toLowerCase().includes(search.toLowerCase());
 
-    const columnKey =
-      filter.column === "equipe"
-        ? "team"
-        : filter.column === "trilha"
-        ? "track"
-        : filter.column === "função"
-        ? "role"
-        : "";
-
-    const userValue = user[columnKey as keyof UserProps];
-    const filterMatch =
-      !filter.column ||
-      (typeof userValue === "string" &&
-        userValue.toLowerCase() === filter.value.toLowerCase());
+    const filterMatch = Object.keys(filters).every((column) => {
+      const columnKey =
+        column === "equipe"
+          ? "team"
+          : column === "trilha"
+          ? "track"
+          : column === "função"
+          ? "role"
+          : "";
+      const userValue = user[columnKey as keyof UserProps];
+      return (
+        !filters[column] ||
+        (typeof userValue === "string" &&
+          userValue.toLowerCase() === filters[column].toLowerCase())
+      );
+    });
 
     return searchMatch && filterMatch;
   });
@@ -58,7 +57,7 @@ export const useUsers = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [search, filter]);
+  }, [search, filters]);
 
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -121,11 +120,15 @@ export const useUsers = () => {
   );
 
   const handleFilterChange = (column: string, value: string) => {
-    setFilter({ column, value });
+    setFilters((prevFilters) => ({ ...prevFilters, [column]: value }));
   };
 
-  const clearFilter = () => {
-    setFilter({ column: "", value: "" });
+  const clearFilter = (column: string) => {
+    setFilters((prevFilters) => {
+      const newFilters = { ...prevFilters };
+      delete newFilters[column];
+      return newFilters;
+    });
     setOpenFilter(null);
   };
 
@@ -157,7 +160,7 @@ export const useUsers = () => {
     uniqueTeams,
     uniqueTracks,
     uniqueRoles,
-    filter,
+    filters,
     openFilter,
     setOpenFilter,
     handleToggleFilter,

@@ -27,7 +27,7 @@ const UsersTable = () => {
     uniqueTeams,
     uniqueTracks,
     uniqueRoles,
-    filter,
+    filters,
     openFilter,
     handleToggleFilter,
     handleFilter,
@@ -83,9 +83,9 @@ const UsersTable = () => {
             <FilterBtn
               text="Equipe"
               options={uniqueTeams}
-              selectedFilter={filter.column === "equipe" ? filter.value : ""}
+              selectedFilter={filters["equipe"] || ""}
               onFilter={handleFilter}
-              onClearFilter={handleClearFilter}
+              onClearFilter={() => handleClearFilter("equipe")}
               isOpen={openFilter === "equipe"}
               onToggle={() => handleToggleFilter("equipe")}
             />
@@ -98,9 +98,9 @@ const UsersTable = () => {
             <FilterBtn
               text="Trilha"
               options={uniqueTracks}
-              selectedFilter={filter.column === "trilha" ? filter.value : ""}
+              selectedFilter={filters["trilha"] || ""}
               onFilter={handleFilter}
-              onClearFilter={handleClearFilter}
+              onClearFilter={() => handleClearFilter("trilha")}
               isOpen={openFilter === "trilha"}
               onToggle={() => handleToggleFilter("trilha")}
             />
@@ -113,9 +113,9 @@ const UsersTable = () => {
             <FilterBtn
               text="Função"
               options={uniqueRoles}
-              selectedFilter={filter.column === "função" ? filter.value : ""}
+              selectedFilter={filters["função"] || ""}
               onFilter={handleFilter}
-              onClearFilter={handleClearFilter}
+              onClearFilter={() => handleClearFilter("função")}
               isOpen={openFilter === "função"}
               onToggle={() => handleToggleFilter("função")}
             />
@@ -126,24 +126,36 @@ const UsersTable = () => {
       <form onSubmit={handleEditFormSubmit}>
         <table className={styles.table}>
           <TableHeader columns={columns} />
-          <TableBody
-            users={filteredUsers}
-            editUserId={editUserId}
-            editFormData={editFormData}
-            handleEditFormChange={handleEditFormChange}
-            handleCancelClick={handleCancelClick}
-            handleEditClick={handleEditClick}
-            handleDeleteClick={handleDeleteClick}
-          />
+          {filteredUsers.length > 0 ? (
+            <TableBody
+              users={filteredUsers}
+              editUserId={editUserId}
+              editFormData={editFormData}
+              handleEditFormChange={handleEditFormChange}
+              handleCancelClick={handleCancelClick}
+              handleEditClick={handleEditClick}
+              handleDeleteClick={handleDeleteClick}
+            />
+          ) : (
+            <tbody>
+              <tr>
+                <td colSpan={columns.length} className={styles.noData}>
+                  Nenhum usuário encontrado...
+                </td>
+              </tr>
+            </tbody>
+          )}
         </table>
       </form>
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        maxVisiblePages={maxVisiblePages}
-        paginate={paginate}
-      />
+      {filteredUsers.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          maxVisiblePages={maxVisiblePages}
+          paginate={paginate}
+        />
+      )}
     </>
   );
 };

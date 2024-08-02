@@ -63,3 +63,7 @@
 .table td:not(:last-child) {
   border-inline-end: 1px solid var(--gray-800);
 }
+
+.noData {
+  color: var(--gray-100);
+}
