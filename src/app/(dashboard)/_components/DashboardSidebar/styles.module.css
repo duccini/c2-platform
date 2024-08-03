@@ -2,6 +2,7 @@
   color: var(--gray-400);
   display: grid;
   min-height: 100vh;
+  width: 255px;
 }
 
 .sidebarHeader,

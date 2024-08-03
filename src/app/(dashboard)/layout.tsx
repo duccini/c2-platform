@@ -16,11 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={styles.layout}>
+    <div className={styles.layout}>
+      <div className={styles.sidebar}>
         <DashboardSidebar />
-        <div className={styles.content}>{children}</div>
-      </body>
-    </html>
+      </div>
+      <div className={styles.content}>{children}</div>
+    </div>
   );
 }

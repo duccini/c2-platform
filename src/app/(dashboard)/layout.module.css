@@ -4,10 +4,14 @@
   width: 100%;
   font-family: "Inter", sans-serif;
   display: flex;
-  position: relative;
+  /* position: relative; */
+}
+
+.sidebar {
+  width: 255px;
 }
 
 .content {
-  width: 100%;
+  width: calc(100% - 255px);
   height: 100%;
 }
