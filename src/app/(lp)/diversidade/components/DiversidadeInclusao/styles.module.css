@@ -1,6 +1,6 @@
 .section {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 6rem 2rem;
   background-color: var(--gray-900);
   color: var(--text-color-primary);
   display: flex;
@@ -33,7 +33,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: white;
+  color: var( --text-color-primary);
 }
 
 .paragraph {
@@ -42,9 +42,10 @@
   font-weight: 400;
   line-height: 1.6;
   margin: 0 auto;
-  text-align: justify;
+  text-align: center;
   hyphens: auto;
-  color: white;
+  color: var( --text-color-primary);
+  padding-top: 10px;
   word-wrap: break-word;
 }
 
@@ -78,7 +79,7 @@
 
 @media (min-width: 1024px) {
   .section {
-    padding: 7rem 4rem;
+    padding: 7 4rem;
   }
 
   .image {
@@ -106,6 +107,6 @@
 
 @media (min-width: 360px) and (max-width: 740px) {
   .section {
-    padding: 70px 60px
+    padding: 120px 60px
   }
 }
