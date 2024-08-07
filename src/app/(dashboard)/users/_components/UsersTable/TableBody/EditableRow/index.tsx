@@ -29,21 +29,21 @@ const EditableRow = forwardRef<HTMLInputElement, EditableRowProps>(
     },
     ref
   ) => {
-    const inputRef = ref
-      ? (ref as React.MutableRefObject<HTMLInputElement>)
-      : useRef<HTMLInputElement>(null);
+    // const inputRef = ref
+    //   ? (ref as React.MutableRefObject<HTMLInputElement>)
+    //   : useRef<HTMLInputElement>(null);
 
-    useEffect(() => {
-      if (inputRef.current) {
-        inputRef.current.focus();
-      }
-    }, []);
+    // useEffect(() => {
+    //   if (inputRef.current) {
+    //     inputRef.current.focus();
+    //   }
+    // }, []);
 
     return (
       <tr className={styles.tableBody}>
         <td>
           <input
-            ref={inputRef}
+            // ref={inputRef}
             type="text"
             placeholder="Digite o nome completo..."
             className={styles.editInput}
