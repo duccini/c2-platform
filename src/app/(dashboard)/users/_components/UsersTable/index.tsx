@@ -1,6 +1,7 @@
 "use client";
 
-import useUsers from "../../_hooks/useUsers";
+import { MAX_VISIBLE_PAGES } from "../../_utils/constants";
+import useUsers from "../../_utils/_hooks/useUsers";
 import FilterSection from "./FilterSection";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
@@ -11,7 +12,7 @@ import styles from "./styles.module.css";
 
 const UsersTable = () => {
   const {
-    usersPerPage,
+    USERS_PER_PAGE,
     currentPage,
     filteredData,
     paginate,
@@ -43,8 +44,7 @@ const UsersTable = () => {
     "Função",
     "Ações",
   ];
-  const totalPages = Math.ceil(filteredData.length / usersPerPage);
-  const maxVisiblePages = 3;
+  const totalPages = Math.ceil(filteredData.length / USERS_PER_PAGE);
 
   return (
     <>
@@ -84,7 +84,7 @@ const UsersTable = () => {
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
-          maxVisiblePages={maxVisiblePages}
+          maxVisiblePages={MAX_VISIBLE_PAGES}
           paginate={paginate}
         />
       )}

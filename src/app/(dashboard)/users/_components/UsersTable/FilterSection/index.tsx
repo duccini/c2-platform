@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import useOutsideClick from "../../../_hooks/useOutsideClick";
-import { FilterSectionProps } from "../../../_utils/filter.type";
+import useOutsideClick from "../../../_utils/_hooks/useOutsideClick";
+import { FilterSectionProps } from "../../../_utils/_types/filter.type";
 import FilterBtn from "./FilterBtn";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 

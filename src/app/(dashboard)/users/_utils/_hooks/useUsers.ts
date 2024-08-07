@@ -6,9 +6,10 @@ import {
   FormEvent,
   MouseEvent,
 } from "react";
-import { UserProps } from "../_utils/user.type";
-import { EditFormData } from "../_utils/form.type";
-import data from "../dataMock.json";
+import { USERS_PER_PAGE } from "../constants";
+import { UserProps } from "../_types/user.type";
+import { EditFormData } from "../_types/form.type";
+import data from "../../dataMock.json";
 
 const useUsers = () => {
   // States
@@ -25,8 +26,6 @@ const useUsers = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState<{ [key: string]: string }>({});
   const [openFilter, setOpenFilter] = useState<string | null>(null);
-
-  const usersPerPage = 12;
 
   // Filter Users
   const filterUsers = useCallback(() => {
@@ -61,8 +60,8 @@ const useUsers = () => {
   }, []);
 
   const filteredData = filterUsers();
-  const lastUserIndex = currentPage * usersPerPage;
-  const firstUserIndex = lastUserIndex - usersPerPage;
+  const lastUserIndex = currentPage * USERS_PER_PAGE;
+  const firstUserIndex = lastUserIndex - USERS_PER_PAGE;
   const filteredUsers = filteredData.slice(firstUserIndex, lastUserIndex);
 
   useEffect(() => {
@@ -149,7 +148,7 @@ const useUsers = () => {
 
   return {
     search,
-    usersPerPage,
+    USERS_PER_PAGE,
     currentPage,
     filteredData,
     paginate,
