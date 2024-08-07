@@ -1,42 +1,33 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-const Inclusoes = () => {
+const Inclusoes: React.FC = () => { 
   return (
     <section className={styles.section}>
-      <div className={styles.imageWrapper}>
-        <img src="/images/diversidade1.png" alt="Diversidade 1" className={`${styles.image} ${styles.image1}`} />
-        <img src="/images/diversidade2.png" alt="Diversidade 2" className={`${styles.image} ${styles.image2}`} />
-        <img src="/images/diversidade3.png" alt="Diversidade 3" className={`${styles.image} ${styles.image3}`} />
-        <img src="/images/diversidade4.png" alt="Diversidade 4" className={`${styles.image} ${styles.image4}`} />
+      <div className={styles.imagesWrapper}>
+        <img className={styles.image} src="/images/diversidade4.png" alt="Image 1" />
+        <img className={styles.image} src="/images/diversidade3.png" alt="Image 2" />
+        <img className={styles.image} src="/images/diversidade2.png" alt="Image 3" />
+        <img className={styles.image} src="/images/diversidade1.png" alt="Image 4" />
       </div>
       <div className={styles.textWrapper}>
-        <div className={styles.textBlock}>
-          <div className={styles.textWithIcon}>
-            <img src="/images/diversidade1.png" alt="Diversidade 1" className={`${styles.icon} ${styles.mobileIcon}`} />
-            <h3 className={styles.title}>Tech4All</h3>
-          </div>
-          <p className={styles.text}>
+        <div className={styles.textItem}>
+          <div className={styles.title}>InclusãoTech</div>
+          <div className={styles.text}>
             Programa para capacitar pessoas LGBTQIA+ em tecnologia, com cursos de programação, design e software, em um ambiente inclusivo e acolhedor.
-          </p>
-        </div>
-        <div className={`${styles.textBlock} ${styles.rightAligned}`}>
-          <div className={styles.textWithIcon}>
-            <img src="/images/diversidade3.png" alt="Diversidade 3" className={`${styles.icon} ${styles.mobileIcon}`} />
-            <h3 className={styles.title}>InclusãoTech</h3>
           </div>
-          <p className={styles.text}>
-            Programa para pessoas com deficiência, oferecendo cursos de desenvolvimento de software, design acessível e habilidades tecnológicas. A InclusãoTech assegura materiais e ambientes acessíveis, além de suporte personalizado para atender às necessidades individuais.
-          </p>
         </div>
-        <div className={styles.textBlock}>
-          <div className={styles.textWithIcon}>
-            <img src="/images/diversidade2.png" alt="Diversidade 2" className={`${styles.icon} ${styles.mobileIcon}`} />
-            <h3 className={styles.title}>TechAfro</h3>
+        <div className={styles.textItem}>
+          <div className={styles.title}>TechAfro</div>
+          <div className={styles.text}>
+            Programa para pessoas com deficiência, oferecendo cursos de desenvolvimento de software, design acessível e habilidades tecnológicas. A InclusãoTec assegura materiais e ambientes acessíveis, além de suporte personalizado para atender às necessidades individuais.
           </div>
-          <p className={styles.text}>
+        </div>
+        <div className={styles.textItem}>
+          <div className={styles.title}>Tech4All</div>
+          <div className={styles.text}>
             Iniciativa para incluir pessoas negras na tecnologia. O TechAfro oferece cursos de programação, ciência de dados e IA, além de mentorias, visando criar uma rede de apoio e oportunidades para avanço profissional.
-          </p>
+          </div>
         </div>
       </div>
     </section>

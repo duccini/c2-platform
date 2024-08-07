@@ -3,6 +3,8 @@ body, html {
   padding: 0;
   font-family: 'Roboto', sans-serif; 
   overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .main {
@@ -14,8 +16,21 @@ body, html {
   overflow-x: hidden; 
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.textItem {
+  max-width: 100%;
+}
+
+.section {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 @media (max-width: 768px) {
- 
   body {
     font-size: 14px; 
     overflow-x: hidden;

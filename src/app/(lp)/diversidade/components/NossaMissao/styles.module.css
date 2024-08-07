@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 1rem;
-  background-color: var(--white);
+  padding: 2rem 3rem;
+  background-color: var(--gray-50);
   gap: 3rem;
   flex-direction: column;
   max-width: 1200px;
@@ -20,21 +20,21 @@
 
 .textContainer {
   text-align: center;
-  color: black;
+  color: var(--gray-950);
   font-family: 'Noto Sans', sans-serif;
   word-wrap: break-word;
   max-width: 600px;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: var(--red-700);
   margin-bottom: 1rem;
 }
 
 .paragraph {
-  font-size: 1.25rem;
+  font-size: 1.10rem;
   font-weight: 400;
   line-height: 1.6;
   text-align: justify;
@@ -64,6 +64,14 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .textContainer {
+    padding: 0 2rem; 
+  }
+
+  .paragraph {
+    padding: 0 0rem; 
+  }
 }
 
 @media (min-width: 768px) {
@@ -78,7 +86,7 @@
   }
 
   .paragraph {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .imageContainer {
@@ -92,7 +100,7 @@
 
 @media (min-width: 1024px) {
   .section {
-    padding: 7rem 4rem;
+    padding: 2.5rem 4rem;
   }
 
   .contentContainer {
@@ -102,10 +110,26 @@
 
 @media (min-width: 1280px) {
   .section {
-    padding: 8rem 5rem;
+    padding: 4rem 5rem;
   }
 
   .contentContainer {
     max-width: 1400px;
+  }
+}
+
+/* Ajuste para Surface Duo */
+@media screen and (min-width: 540px) and (max-width: 720px) and (min-height: 720px) and (max-height: 1440px) {
+  .contentContainer {
+    flex-direction: column;
+  }
+
+  .textContainer, .imageContainer {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .image {
+    width: 100%;
   }
 }
