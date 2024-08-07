@@ -13,6 +13,10 @@ const TableBody = ({
   handleCancelClick,
   handleEditClick,
   handleDeleteClick,
+  uniqueTeams,
+  uniqueTracks,
+  uniquePermissions,
+  uniqueRoles,
 }: any) => (
   <tbody className={styles.tbody}>
     {users.map((user: any) => (
@@ -22,6 +26,10 @@ const TableBody = ({
             editFormData={editFormData}
             handleEditFormChange={handleEditFormChange}
             handleCancelClick={handleCancelClick}
+            teamOptions={uniqueTeams}
+            trackOptions={uniqueTracks}
+            permissionOptions={uniquePermissions}
+            roleOptions={uniqueRoles}
           />
         ) : (
           <ReadOnlyRow

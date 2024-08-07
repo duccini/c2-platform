@@ -28,6 +28,7 @@ const UsersTable = () => {
     handleDeleteClick,
     uniqueTeams,
     uniqueTracks,
+    uniquePermissions,
     uniqueRoles,
     filters,
     openFilter,
@@ -73,6 +74,10 @@ const UsersTable = () => {
               handleCancelClick={handleCancelClick}
               handleEditClick={handleEditClick}
               handleDeleteClick={handleDeleteClick}
+              uniqueTeams={uniqueTeams}
+              uniqueTracks={uniqueTracks}
+              uniquePermissions={uniquePermissions}
+              uniqueRoles={uniqueRoles}
             />
           ) : (
             <NoDataMessage colSpan={columns.length} />

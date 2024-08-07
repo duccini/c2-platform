@@ -6,16 +6,35 @@ import styles from "./styles.module.css";
 
 interface EditableRowProps {
   editFormData: EditFormData;
-  handleEditFormChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleEditFormChange: (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => void;
   handleCancelClick: () => void;
+  teamOptions: string[];
+  trackOptions: string[];
+  permissionOptions: string[];
+  roleOptions: string[];
 }
 
 const EditableRow = forwardRef<HTMLInputElement, EditableRowProps>(
-  ({ editFormData, handleEditFormChange, handleCancelClick }, ref) => {
-    const inputRef = ref || useRef<HTMLInputElement>(null);
+  (
+    {
+      editFormData,
+      handleEditFormChange,
+      handleCancelClick,
+      teamOptions,
+      trackOptions,
+      permissionOptions,
+      roleOptions,
+    },
+    ref
+  ) => {
+    const inputRef = ref
+      ? (ref as React.MutableRefObject<HTMLInputElement>)
+      : useRef<HTMLInputElement>(null);
 
     useEffect(() => {
-      if (inputRef && "current" in inputRef && inputRef.current) {
+      if (inputRef.current) {
         inputRef.current.focus();
       }
     }, []);
@@ -35,48 +54,64 @@ const EditableRow = forwardRef<HTMLInputElement, EditableRowProps>(
           />
         </td>
         <td>
-          <input
-            type="text"
-            placeholder="Digite a equipe..."
-            className={styles.editInput}
+          <select
+            className={styles.editSelect}
             name="team"
             value={editFormData.team}
             onChange={handleEditFormChange}
             required
-          />
+          >
+            {teamOptions.map((option) => (
+              <option key={option} value={option} className={styles.option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </td>
         <td>
-          <input
-            type="text"
-            placeholder="Digite a trilha..."
-            className={styles.editInput}
+          <select
+            className={styles.editSelect}
             name="track"
             value={editFormData.track}
             onChange={handleEditFormChange}
             required
-          />
+          >
+            {trackOptions.map((option) => (
+              <option key={option} value={option} className={styles.option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </td>
         <td>
-          <input
-            type="text"
-            placeholder="Digite a permissão..."
-            className={styles.editInput}
+          <select
+            className={styles.editSelect}
             name="permission"
             value={editFormData.permission}
             onChange={handleEditFormChange}
             required
-          />
+          >
+            {permissionOptions.map((option) => (
+              <option key={option} value={option} className={styles.option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </td>
         <td>
-          <input
-            type="text"
-            placeholder="Digite a função..."
-            className={styles.editInput}
+          <select
+            className={styles.editSelect}
             name="role"
             value={editFormData.role}
             onChange={handleEditFormChange}
             required
-          />
+          >
+            {roleOptions.map((option) => (
+              <option key={option} value={option} className={styles.option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </td>
         <td className={styles.actionBtns}>
           <button className={styles.actionBtn} type="submit">
@@ -90,5 +125,7 @@ const EditableRow = forwardRef<HTMLInputElement, EditableRowProps>(
     );
   }
 );
+
+EditableRow.displayName = "EditableRow";
 
 export default EditableRow;

@@ -144,6 +144,9 @@ const useUsers = () => {
   // Unique Values
   const uniqueTeams = Array.from(new Set(users.map((user) => user.team)));
   const uniqueTracks = Array.from(new Set(users.map((user) => user.track)));
+  const uniquePermissions = Array.from(
+    new Set(users.map((user) => user.permission))
+  );
   const uniqueRoles = Array.from(new Set(users.map((user) => user.role)));
 
   return {
@@ -165,6 +168,7 @@ const useUsers = () => {
     clearFilter,
     uniqueTeams,
     uniqueTracks,
+    uniquePermissions,
     uniqueRoles,
     filters,
     openFilter,

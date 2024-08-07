@@ -17,9 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <div className={styles.layout}>
-      <div className={styles.sidebar}>
-        <DashboardSidebar />
-      </div>
+      <DashboardSidebar />
       <div className={styles.content}>{children}</div>
     </div>
   );
