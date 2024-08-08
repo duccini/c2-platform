@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "../globals.css";
+import "@/app/globals.css";
 import styles from "./layout.module.css";
 
 import DashboardSidebar from "./_components/DashboardSidebar";
@@ -16,11 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={styles.layout}>
-        <DashboardSidebar />
-        <div className={styles.content}>{children}</div>
-      </body>
-    </html>
+    <div className={styles.layout}>
+      <DashboardSidebar />
+      <div className={styles.content}>{children}</div>
+    </div>
   );
 }

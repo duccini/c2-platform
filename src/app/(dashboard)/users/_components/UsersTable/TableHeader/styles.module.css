@@ -1,0 +1,8 @@
+.thead > tr > :nth-child(4) {
+  background-color: var(--brown-300);
+}
+
+.tableHeader {
+  background-color: var(--brown-900);
+  font-size: 1.25rem;
+}

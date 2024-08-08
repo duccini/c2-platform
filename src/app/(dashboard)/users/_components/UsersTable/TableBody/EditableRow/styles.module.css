@@ -1,0 +1,44 @@
+.tableBody {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.tableBody:nth-child(odd) {
+  background-color: var(--brown-400);
+}
+
+.editInput,
+.editSelect {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  color: var(--gray-100);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.editSelect,
+.option {
+  cursor: pointer;
+}
+
+.option {
+  background-color: var(--brown-700);
+  border-radius: 8px;
+}
+
+.actionBtns {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.actionBtn {
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--gray-500);
+  border: 0;
+}
