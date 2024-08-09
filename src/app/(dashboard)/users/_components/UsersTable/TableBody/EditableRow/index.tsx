@@ -1,4 +1,4 @@
-import { ChangeEvent, forwardRef, useEffect, useRef } from "react";
+import { ChangeEvent, forwardRef } from "react";
 import { EditFormData } from "@/app/(dashboard)/users/_utils/_types/form.type";
 import { FaCheck, FaXmark } from "react-icons/fa6";
 
@@ -17,33 +17,19 @@ interface EditableRowProps {
 }
 
 const EditableRow = forwardRef<HTMLInputElement, EditableRowProps>(
-  (
-    {
-      editFormData,
-      handleEditFormChange,
-      handleCancelClick,
-      teamOptions,
-      trackOptions,
-      permissionOptions,
-      roleOptions,
-    },
-    ref
-  ) => {
-    // const inputRef = ref
-    //   ? (ref as React.MutableRefObject<HTMLInputElement>)
-    //   : useRef<HTMLInputElement>(null);
-
-    // useEffect(() => {
-    //   if (inputRef.current) {
-    //     inputRef.current.focus();
-    //   }
-    // }, []);
-
+  ({
+    editFormData,
+    handleEditFormChange,
+    handleCancelClick,
+    teamOptions,
+    trackOptions,
+    permissionOptions,
+    roleOptions,
+  }) => {
     return (
       <tr className={styles.tableBody}>
         <td>
           <input
-            // ref={inputRef}
             type="text"
             placeholder="Digite o nome completo..."
             className={styles.editInput}
