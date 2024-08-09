@@ -70,7 +70,9 @@ const useUsers = () => {
 
   // Edit Form Handlers
   const handleEditFormChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
+    (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
+      if (!e.target) return;
+
       const { name, value } = e.target;
       setEditFormData((prevData) => ({
         ...prevData,
@@ -97,6 +99,7 @@ const useUsers = () => {
   const handleEditClick = useCallback(
     (e: MouseEvent<HTMLButtonElement>, user: UserProps): void => {
       e.preventDefault();
+
       setEditUserId(user.id);
       setEditFormData({
         name: user.name,

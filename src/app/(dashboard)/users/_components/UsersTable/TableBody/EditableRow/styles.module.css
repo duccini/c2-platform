@@ -27,7 +27,7 @@
 
 .option {
   background-color: var(--brown-700);
-  border-radius: 8px;
+  padding-block: 1rem;
 }
 
 .actionBtns {

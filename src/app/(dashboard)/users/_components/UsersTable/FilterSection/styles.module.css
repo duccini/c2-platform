@@ -9,7 +9,7 @@
   align-items: center;
   gap: 0.5rem;
   width: 100%;
-  max-width: 40%;
+  max-width: 35%;
   padding-inline-start: 1rem;
   border-radius: 100vw;
   border: 1px solid var(--gray-100);
