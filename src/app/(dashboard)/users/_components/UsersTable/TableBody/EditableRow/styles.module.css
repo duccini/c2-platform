@@ -20,6 +20,10 @@
   font-weight: 400;
 }
 
+.adminRow {
+  color: var(--green-300);
+}
+
 .editSelect,
 .option {
   cursor: pointer;
@@ -41,4 +45,8 @@
   background-color: transparent;
   color: var(--gray-500);
   border: 0;
+}
+
+.deleteBtn {
+  color: var(--red-500);
 }

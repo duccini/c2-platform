@@ -1,21 +1,15 @@
 import { MouseEvent } from "react";
 import { UserProps } from "@/app/(dashboard)/users/_utils/_types/user.type";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { FaTrash } from "react-icons/fa";
+import { CiEdit } from "react-icons/ci";
 
 import styles from "./styles.module.css";
 
 interface ReadOnlyRowProps {
   user: UserProps;
   handleEditClick: (e: MouseEvent<HTMLButtonElement>, user: UserProps) => void;
-  handleDeleteClick: (userId: number) => void;
 }
 
-const ReadOnlyRow = ({
-  user,
-  handleEditClick,
-  handleDeleteClick,
-}: ReadOnlyRowProps) => {
+const ReadOnlyRow = ({ user, handleEditClick }: ReadOnlyRowProps) => {
   const isAdmin = user.permission === "Administrador";
 
   return (
@@ -30,13 +24,7 @@ const ReadOnlyRow = ({
           className={styles.actionBtn}
           onClick={(e) => handleEditClick(e, user)}
         >
-          <BsThreeDotsVertical size={20} />
-        </button>
-        <button
-          className={styles.actionBtn}
-          onClick={() => handleDeleteClick(user.id)}
-        >
-          <FaTrash size={20} />
+          <CiEdit size={28} />
         </button>
       </td>
     </tr>

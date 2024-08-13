@@ -23,20 +23,18 @@ const TableBody = ({
       <Fragment key={user.id}>
         {editUserId === user.id ? (
           <EditableRow
+            user={user}
             editFormData={editFormData}
             handleEditFormChange={handleEditFormChange}
             handleCancelClick={handleCancelClick}
+            handleDeleteClick={handleDeleteClick}
             teamOptions={uniqueTeams}
             trackOptions={uniqueTracks}
             permissionOptions={uniquePermissions}
             roleOptions={uniqueRoles}
           />
         ) : (
-          <ReadOnlyRow
-            user={user}
-            handleEditClick={handleEditClick}
-            handleDeleteClick={handleDeleteClick}
-          />
+          <ReadOnlyRow user={user} handleEditClick={handleEditClick} />
         )}
       </Fragment>
     ))}
