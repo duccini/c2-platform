@@ -22,7 +22,9 @@ const ReadOnlyRow = ({ user, handleEditClick }: ReadOnlyRowProps) => {
       <td className={styles.actionBtns}>
         <button
           className={styles.actionBtn}
-          onClick={(e) => handleEditClick(e, user)}
+          onClick={(e) => {
+            handleEditClick(e, user);
+          }}
         >
           <CiEdit size={28} />
         </button>
