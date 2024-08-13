@@ -1,6 +1,6 @@
 .table {
   border-collapse: separate;
-  border: 1px solid var(--gray-800);
+  border: 1px solid var(--rgba-white-4);
   border-radius: 0.625rem;
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@
 }
 
 .table td {
-  border-block-start: 1px solid var(--gray-800);
+  border-block-start: 1px solid var(--rgba-white-4);
 }
 
 .table th,
@@ -26,5 +26,5 @@
 
 .table th:not(:last-child),
 .table td:not(:last-child) {
-  border-inline-end: 1px solid var(--gray-800);
+  border-inline-end: 1px solid var(--rgba-white-4);
 }

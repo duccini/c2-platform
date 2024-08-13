@@ -3,8 +3,12 @@
   font-weight: 400;
 }
 
-.tableBody:nth-child(odd) {
-  background-color: var(--brown-400);
+.tableBody {
+  background-color: var(--brown-700);
+}
+
+.adminRow {
+  color: var(--green-300);
 }
 
 .actionBtns {

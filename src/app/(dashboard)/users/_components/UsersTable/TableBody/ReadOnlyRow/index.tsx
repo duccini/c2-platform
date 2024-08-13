@@ -16,12 +16,14 @@ const ReadOnlyRow = ({
   handleEditClick,
   handleDeleteClick,
 }: ReadOnlyRowProps) => {
+  const isAdmin = user.permission === "Administrador";
+
   return (
     <tr className={styles.tableBody}>
       <td>{user.name}</td>
       <td>{user.team}</td>
       <td>{user.track}</td>
-      <td>{user.permission}</td>
+      <td className={`${isAdmin ? styles.adminRow : ""}`}>{user.permission}</td>
       <td>{user.role}</td>
       <td className={styles.actionBtns}>
         <button
