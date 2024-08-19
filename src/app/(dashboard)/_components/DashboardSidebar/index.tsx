@@ -95,17 +95,29 @@ const DashboardSidebar = () => {
                 href="/users"
               ></Item>
 
-              <Item text="Projetos" icon={<FaRegEnvelope />} href="#"></Item>
+              <Item
+                text="Projetos"
+                icon={<FaRegEnvelope />}
+                href="/projects"
+              ></Item>
 
               <Item
                 text="Trilhas Iniciais"
                 icon={<FaFileInvoice />}
-                href="#"
+                href="/tracks"
               ></Item>
 
-              <Item text="Eventos" icon={<TiCalendarOutline />} href="#"></Item>
+              <Item
+                text="Eventos"
+                icon={<TiCalendarOutline />}
+                href="/events"
+              ></Item>
 
-              <Item text="Mentores" icon={<LuGraduationCap />} href="#"></Item>
+              <Item
+                text="Mentores"
+                icon={<LuGraduationCap />}
+                href="/mentors"
+              ></Item>
 
               <Item text="Formulários" icon={<GrNotes />} href="/forms"></Item>
             </nav>

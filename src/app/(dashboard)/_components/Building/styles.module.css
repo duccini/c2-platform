@@ -1,0 +1,17 @@
+.building {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+.building h1 {
+  margin-block-end: 1rem;
+}
+
+.building a {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--red-500);
+}
