@@ -20,6 +20,9 @@
   --red-500: #e63939;
   --red-700: #bf1313;
 
+  --green-200: #c5f8a6;
+  --green-300: #b1de96;
+
   --brown-100: #757272;
   --brown-200: #423838;
   --brown-300: #4f2a2a;
@@ -29,11 +32,11 @@
 
   /* cores para Dashboard */
 
-  --rgba-white-40: rgba(255, 255, 255, 0.40);
-  --rgba-white-20: rgba(255, 255, 255, 0.20);
+  --rgba-white-40: rgba(255, 255, 255, 0.4);
+  --rgba-white-20: rgba(255, 255, 255, 0.2);
   --rgba-white-3: rgba(255, 255, 255, 0.03);
-  --rgba-white-50: rgba(255, 255, 255, 0.50);
-  --rgba-white-10: rgba(255, 255, 255, 0.10);
+  --rgba-white-50: rgba(255, 255, 255, 0.5);
+  --rgba-white-10: rgba(255, 255, 255, 0.1);
   --rgba-white-4: rgba(255, 255, 255, 0.04);
 
   /* cores para a seção diversidade adicionadas */
