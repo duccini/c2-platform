@@ -5,6 +5,8 @@
 }
 
 :root {
+  --primary-dashboard-ff: "Inter", sans-serif;
+
   --text-color-primary: #e2e8f0;
   --gray-50: #fefeff;
   --gray-100: #f9f9f9;
@@ -12,7 +14,9 @@
   --gray-500: #8a8c91;
   --gray-600: #353535;
   --gray-700: #363636;
+  --gray-750: #313131;
   --gray-800: #262626;
+  --gray-850: #242424;
   --gray-900: #141414;
   --gray-950: #010100;
 

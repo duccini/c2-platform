@@ -2,4 +2,12 @@
   width: 100%;
   padding: 2rem;
   color: var(--gray-100);
+  font-family: var(--primary-dashboard-ff);
+}
+
+.title {
+  margin-block-start: 2.875rem;
+  margin-block-end: 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
 }

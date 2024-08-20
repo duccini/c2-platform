@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.imageSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 552px;
+}
+
+.inputSection {
+  width: 100%;
+  max-width: 435px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.descriptionInput {
+  height: 111px;
+  resize: none;
+  padding-block-start: 0.5rem;
+}
+
+.buttonGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: auto;
+  gap: 1rem;
+  height: 10px;
+}
+
+.cancelBtn,
+.saveBtn {
+  cursor: pointer;
+  padding: 1rem 0.625rem;
+  border-radius: 6px;
+  color: var(--gray-100);
+  font: 600 1rem var(--primary-dashboard-ff);
+}
+
+.cancelBtn {
+  background-color: transparent;
+  border: 1px solid var(--gray-600);
+}
+
+.saveBtn {
+  background-color: var(--red-500);
+  border: none;
+}
