@@ -1,0 +1,38 @@
+.tagsTitle {
+  font: 600 1rem var(--primary-dashboard-ff);
+  margin-block-start: 2rem;
+  margin-block-end: 1rem;
+  color: var(--gray-100);
+}
+
+.chooseTag {
+  color: var(--gray-500);
+  font: 400 0.875rem var(--primary-dashboard-ff);
+  margin-block-end: 2rem;
+}
+
+.tagsContainer {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font: 400 0.875rem var(--primary-dashboard-ff);
+  color: var(--gray-100);
+  background-color: var(--brown-700);
+  padding-inline: 1.5rem;
+  padding-block: 0.75rem;
+  border: 1px solid var(--gray-600);
+  border-radius: 100vw;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tag:hover {
+  background-color: var(--rgba-white-4);
+}
+
+.tagSelected {
+  background-color: var(--red-500);
+}

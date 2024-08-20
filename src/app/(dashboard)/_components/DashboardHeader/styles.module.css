@@ -1,0 +1,28 @@
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.title span {
+  color: var(--brown-100);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  background-color: var(--rgba-white-4);
+  gap: 8px;
+  padding: 0.75rem;
+  border-radius: 100vw;
+}
+
+.profile p {
+  font: 0.875rem 500 "Inter", sans-serif;
+  color: var(--gray-100);
+}

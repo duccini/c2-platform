@@ -1,0 +1,78 @@
+.label {
+  margin-block-end: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.uploadBox {
+  border: 1px dashed var(--gray-600);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 0.625rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.uploadBox.dragging {
+  background-color: var(--rgba-white-4);
+}
+
+.uploadText {
+  font: 500 1rem var(--primary-dashboard-ff);
+  color: var(--gray-100);
+  margin-block: 1rem;
+}
+
+.uploadInfo {
+  font: 400 0.875rem var(--primary-dashboard-ff);
+  margin-block-end: 2rem;
+  color: var(--gray-500);
+}
+
+.uploadBtn {
+  cursor: pointer;
+  background-color: var(--brown-700);
+  color: var(--gray-100);
+  padding: 0.5rem 2rem;
+  border: 1px solid var(--gray-600);
+  font: 500 0.875rem var(--primary-dashboard-ff);
+  border-radius: 6px;
+}
+
+.imageGroupTitle {
+  margin-block-start: 2rem;
+  margin-block-end: 1rem;
+  font: 600 1rem var(--primary-dashboard-ff);
+}
+
+.imageGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  max-width: fit-content;
+  padding: 0.75rem;
+  background-color: var(--brown-700);
+  border: 1px solid var(--gray-600);
+  border-radius: 0.75rem;
+}
+
+.imageName {
+  font: 500 0.875rem var(--primary-dashboard-ff);
+}
+
+.imageSize {
+  font: 400 0.875rem var(--primary-dashboard-ff);
+  color: var(--gray-500);
+}
+
+.closeIcon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-750);
+  border-radius: 50%;
+  outline: none;
+  border: 0;
+}

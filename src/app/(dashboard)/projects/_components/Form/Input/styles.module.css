@@ -1,0 +1,25 @@
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  height: 48px;
+  outline: none;
+  font-family: var(--primary-dashboard-ff);
+  background-color: var(--brown-700);
+  color: var(--gray-100);
+  padding-inline-start: 0.5rem;
+  border: 1px solid var(--gray-600);
+  border-radius: 0.75rem;
+}
+
+.inputError {
+  border-color: var(--red-500);
+  outline: var(--red-500);
+}
+
+.error {
+  color: var(--red-500);
+}
