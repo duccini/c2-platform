@@ -53,13 +53,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-block-start: 13rem;
-}
-
-@media (min-width: 1300px) {
-  .sidebarSettings {
-    min-height: 47vh;
-  }
+  min-height: 500px;
+  padding-block-end: 2rem;
 }
 
 .sidebarSettings h2 {
