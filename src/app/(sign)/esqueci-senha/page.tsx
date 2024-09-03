@@ -12,18 +12,21 @@ export default function EsqueciSenha() {
       <BackgroundStyle />
 
       <div className={styles.containerForm}>
-        <div className={styles.subContainer}>
-          <Image
-            className={styles.logoContainer}
-            src={logoCodigoCerto}
-            alt="Description"
-            width={60}
-            height={40}
-          />
-          <h1 className={styles.titleConatinerForm}>Código Certo Coders</h1>
-        </div>
+       
 
         <form className={styles.form}>
+        <div className={styles.subContainer}>
+       <Link href='/'>
+       <Image
+            className={styles.logoContainer}
+            src={logoCodigoCerto}
+            alt="Logo codigo certo"
+            width={48}
+            height={32}
+          />
+       </Link>
+          <h1 className={styles.titleContainerForm}>Código Certo Coders</h1>
+        </div>
           <h1 className={styles.titleForm}>Esqueci minha senha</h1>
           <p className={styles.paragraphForm}>
             Insira seu e-mail abaixo e enviaremos um link para redefinição de
@@ -43,13 +46,17 @@ export default function EsqueciSenha() {
 
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.buttonRecuperar}>
-              Recuperar minha senha
+           <Link href="/recuperar-senha">
+             Recuperar minha senha 
+           </Link>
             </button>
-
-            <Link href="/login" className={styles.buttonLogin}>
+           <button className={styles.buttonVoltar}>
+            
+           <Link href="/login" className={styles.linkLogin}>
               <FaArrowLeft className={styles.arrowLeft} />
               Voltar para o login
             </Link>
+           </button>
           </div>
         </form>
       </div>

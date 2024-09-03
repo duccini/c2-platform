@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import logoCodigoCerto from "public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/ContainerLogin/page";
+import Link from "next/link";
 
 export default function RedefinirSenha() {
   return (
@@ -10,18 +11,21 @@ export default function RedefinirSenha() {
       <BackgroundStyle />
 
       <div className={styles.containerForm}>
-        <div className={styles.subContainer}>
-          <Image
-            className={styles.logoContainer}
-            src={logoCodigoCerto}
-            alt="Description"
-            width={60}
-            height={40}
-          />
-          <h1 className={styles.titleConatinerForm}>Código Certo Coders</h1>
-        </div>
+     
 
         <form className={styles.form}>
+        <div className={styles.subContainer}>
+       <Link href='/'>
+       <Image
+            className={styles.logoContainer}
+            src={logoCodigoCerto}
+            alt="Logo codigo certo"
+            width={48}
+            height={32}
+          />
+       </Link>
+          <h1 className={styles.titleContainerForm}>Código Certo Coders</h1>
+        </div>
           <h1 className={styles.titleForm}>Redefinir senha</h1>
           <p className={styles.paragraphForm}>Insira sua nova senha.</p>
 

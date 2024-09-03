@@ -13,18 +13,21 @@ export default function CadastroUser() {
       <BackgroundStyle />
 
       <div className={styles.containerForm}>
+     
+      
+        <form className={styles.form}>
         <div className={styles.subContainer}>
-          <Image
+       <Link href='/'>
+       <Image
             className={styles.logoContainer}
             src={logoCodigoCerto}
-            alt="Description"
-            width={60}
-            height={40}
+            alt="Logo codigo certo"
+            width={48}
+            height={32}
           />
-          <h1 className={styles.titleConatinerForm}>Código Certo Coders</h1>
+       </Link>
+          <h1 className={styles.titleContainerForm}>Código Certo Coders</h1>
         </div>
-
-        <form className={styles.form}>
           <h1 className={styles.titleForm}>Criar conta</h1>
           <p className={styles.paragraphForm}>
             Preencha os campos abaixo para criar sua conta.

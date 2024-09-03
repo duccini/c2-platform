@@ -2,18 +2,21 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 import logoCodigoCerto2 from "public/images/codigocerto2.svg";
+import Link from "next/link";
 
 export default function BackgroundStyle() {
   return (
     <div className={styles.card}>
       <div className={styles.mask}>
+        <Link href="/">
         <Image
           className={styles.logoContainer}
           src={logoCodigoCerto2}
           alt="Description"
-          width={60}
-          height={40}
+          width={48}
+          height={32}
         />
+        </Link>
         <div className={styles.vector}>
           <div className={styles.vector1}></div>
           <div className={styles.vector2}></div>
