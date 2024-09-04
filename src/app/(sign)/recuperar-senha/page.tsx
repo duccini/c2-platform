@@ -25,12 +25,15 @@ export default function RecuperarSenha() {
        </Link>
           <h1 className={styles.titleContainerForm}>Código Certo Coders</h1>
         </div>
-
+         <div className={styles.alignContainer}>
+          
+         <div>
           <h1 className={styles.titleForm}>Recuperar senha</h1>
           <p className={styles.paragraphForm}>
             Insira o código de 6 dígitos enviado para{" "}
             <span>email@email.com</span>
           </p>
+          </div>
 
           <div className={styles.formField}>
             <input type="text" className={styles.inputNumber} />
@@ -40,6 +43,7 @@ export default function RecuperarSenha() {
             <input type="text" className={styles.inputNumber} />
             <input type="text" className={styles.inputNumber} />
           </div>
+         </div>
 
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.buttonRecuperar}>

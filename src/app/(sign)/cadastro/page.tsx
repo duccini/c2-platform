@@ -1,21 +1,64 @@
+'use client'
+
 import Image from "next/image";
 import styles from "./page.module.css";
-
 import logoCodigoCerto from "public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/ContainerLogin/page";
-
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import Link from "next/link";
+import {  useState } from "react";
+import { useRouter } from "next/navigation";
+import api from "../../../utils/api"
+import Cookies from 'js-cookie'
 
 export default function CadastroUser() {
+
+   const [username,setUsername] = useState("")
+   const [email,setEmail] = useState("")
+   const [password,setPassword] = useState("")
+
+
+   
+
+   const router = useRouter();
+
+   const handleSubmit = async (e: React.FormEvent) => {
+
+
+     e.preventDefault();
+     
+
+     try {
+        
+      const response = await api.post('/users/register', {
+        username,
+        email,
+        password,
+      });
+       
+      Cookies.set("token",response.data.token, { expires: 1 })
+
+      router.push('/NewDashboard')
+
+     } catch (error) {
+
+      console.log("Erro ao registrar usuário:",error)
+     }
+
+   }
+
+
+
+
+
   return (
     <div className={styles.newUserContainer}>
-      <BackgroundStyle />
+       <BackgroundStyle /> 
 
       <div className={styles.containerForm}>
      
       
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.subContainer}>
        <Link href='/'>
        <Image
@@ -41,6 +84,7 @@ export default function CadastroUser() {
               id="username"
               name="username"
               placeholder="Digite seu nome"
+              onChange={(e)=> setUsername(e.target.value)}
             />
           </div>
 
@@ -52,6 +96,8 @@ export default function CadastroUser() {
               id="email"
               name="Email"
               placeholder="Digite seu email"
+
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -63,6 +109,8 @@ export default function CadastroUser() {
               id="password"
               name="password"
               placeholder="Digite sua senha"
+
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
