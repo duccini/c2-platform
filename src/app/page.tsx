@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+
 import styles from "./page.module.css";
 
 // import audio from "../../public/audio/Marion.Barfs-Clint.Mansell.mp3";

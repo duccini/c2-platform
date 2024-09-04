@@ -2,19 +2,53 @@
 
 import styles from "./page.module.css";
 import logoCodigoCerto from "public/images/codigocerto.svg";
-import React from 'react'
+import React, { useState } from 'react'
 import Link from "next/link";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import Image from "next/image";
 import BackgroundStyle from "@/components/ContainerLogin/page";
+import api from "../../../utils/api"
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
+
 export default function LoginUser() {
+
+
+
+  const [email,setEmail]= useState('')
+  const [password,setPassword]= useState('')
+  
+  const router = useRouter()
+
+const handleSubmit = async (e:React.FormEvent) => {
+
+ e.preventDefault()
+
+  try {
+    const response = await  api.post('/auth/login' , {
+      email,password
+    })
+
+    Cookies.set("token", response.data.token, {expires: 1})
+    router.push("/NewDashboard")
+  } catch (error) {
+
+    console.log(error)
+  }
+
+
+
+
+}
+
+
   return (
     <div className={styles.ContainerPageLogin}>
       <BackgroundStyle />
       <div className={styles.containerForm}>
        
 
-       <form className={styles.form}>
+       <form className={styles.form} onSubmit={handleSubmit}>
        <div className={styles.subContainer}>
        <Link href='/'>
        <Image
@@ -40,6 +74,7 @@ export default function LoginUser() {
              id="email"
              name="Email"
              placeholder="Digite seu email"
+             onChange={(e)=> setEmail(e.target.value)}
            />
          </div>
 
@@ -51,6 +86,7 @@ export default function LoginUser() {
              id="password"
              name="password"
              placeholder="Digite sua senha"
+             onChange={(e) => setPassword(e.target.value)}
            />
          </div>
           

@@ -10,44 +10,68 @@ import {  useState } from "react";
 import { useRouter } from "next/navigation";
 import api from "../../../utils/api"
 import Cookies from 'js-cookie'
-
+import Error from "../../../components/Validation/index"
 export default function CadastroUser() {
 
-   const [username,setUsername] = useState("")
-   const [email,setEmail] = useState("")
-   const [password,setPassword] = useState("")
+  const [username, setUsername] = useState("");
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
 
+   const [emailError, setEmailError] = useState(false);
+   const [passwordError, setPasswordError] = useState(false);
+   const [usernameError, setUsernameError] = useState(false);
+   const [invalidEmailError, setInvalidEmailError] = useState(false); 
+   const [lengthPasswordError, setLengthPasswordError] = useState(false);
 
-   
 
    const router = useRouter();
 
    const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setEmailError(!email);
+    setPasswordError(!password);
+    setUsernameError(!username);
 
 
-     e.preventDefault();
-     
+    if(password.length < 8){
+      setLengthPasswordError(true);
+      return;
+    } else {
+      setLengthPasswordError(false);
+    }
 
-     try {
-        
+    function validarEmail(e: string) {
+      var result = /\S+@\S+\.\S+/;
+      return result.test(email);
+    }
+
+    if(!validarEmail(email)){
+      setInvalidEmailError(true);
+      return;
+    } else {
+      setInvalidEmailError(false);
+    }
+    
+    if(!username || !email || !password){
+      console.log("Nome, Email e Senha são obrigatórios!");
+      return;
+    }
+
+    try {
       const response = await api.post('/users/register', {
         username,
         email,
         password,
       });
-       
-      Cookies.set("token",response.data.token, { expires: 1 })
 
-      router.push('/NewDashboard')
+      Cookies.set("token", response.data.token, { expires: 1 });
+      router.push('/NewDashboard');
 
-     } catch (error) {
-
-      console.log("Erro ao registrar usuário:",error)
-     }
-
-   }
-
-
+    } catch (error) {
+      console.log("Erro ao registrar usuário:", error);
+    }
+  }
 
 
 
@@ -86,7 +110,9 @@ export default function CadastroUser() {
               placeholder="Digite seu nome"
               onChange={(e)=> setUsername(e.target.value)}
             />
+              
           </div>
+          {usernameError && <Error message="O nome é obrigatório!" />}
 
           <p className={styles.paragraphField}>Email*</p>
           <div className={styles.formField}>
@@ -99,7 +125,11 @@ export default function CadastroUser() {
 
               onChange={(e) => setEmail(e.target.value)}
             />
+           
           </div>
+          {invalidEmailError && <Error message="Digite um Email válido!"/>}
+          {emailError && <Error message="O Email é obrigatório!"/>}
+          
 
           <p className={styles.paragraphField}>Senha*</p>
           <div className={styles.formField}>
@@ -113,6 +143,10 @@ export default function CadastroUser() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {lengthPasswordError && <Error message="A senha deve conter no mínimo 8 caracteres"/>}
+            {passwordError && <Error message="A senha é obrigatória!"/>}
+            
+            
 
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.submitButton}>
