@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import logoCodigoCerto from "public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/ContainerLogin/page";
+import Link from "next/link";
 
 export default function RecuperarSenha() {
   return (
@@ -10,23 +11,29 @@ export default function RecuperarSenha() {
       <BackgroundStyle />
 
       <div className={styles.containerForm}>
+    
+        <form className={styles.form}>
         <div className={styles.subContainer}>
-          <Image
+       <Link href='/'>
+       <Image
             className={styles.logoContainer}
             src={logoCodigoCerto}
-            alt="Description"
-            width={60}
-            height={40}
+            alt="Logo codigo certo"
+            width={48}
+            height={32}
           />
-          <h1 className={styles.titleConatinerForm}>Código Certo Coders</h1>
+       </Link>
+          <h1 className={styles.titleContainerForm}>Código Certo Coders</h1>
         </div>
-
-        <form className={styles.form}>
+         <div className={styles.alignContainer}>
+          
+         <div>
           <h1 className={styles.titleForm}>Recuperar senha</h1>
           <p className={styles.paragraphForm}>
             Insira o código de 6 dígitos enviado para{" "}
             <span>email@email.com</span>
           </p>
+          </div>
 
           <div className={styles.formField}>
             <input type="text" className={styles.inputNumber} />
@@ -36,6 +43,7 @@ export default function RecuperarSenha() {
             <input type="text" className={styles.inputNumber} />
             <input type="text" className={styles.inputNumber} />
           </div>
+         </div>
 
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.buttonRecuperar}>

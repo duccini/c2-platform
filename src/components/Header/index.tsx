@@ -75,7 +75,7 @@ const Header = () => {
           </nav>
 
           <div className={styles.loginButtonMobile}>
-            <Link href="/" onClick={togglePopover}>
+            <Link href="/login" onClick={togglePopover}>
               <span>Login</span>
             </Link>
           </div>

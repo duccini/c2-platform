@@ -1,21 +1,26 @@
 .containerRecuperarSenha {
-  display: flex;
+   display: flex;
+   width: 100%;
+   height: 100%;
+   background: #121212;
+
 }
 
 .containerForm {
-  background: #232323;
+  background: #121212;
   color: white;
-  width: 100vw;
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  
 }
 
 .subContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
   margin: 0 auto;
   padding: 10px;
@@ -27,11 +32,12 @@
 }
 
 .titleContainerForm {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-  white-space: nowrap;
-}
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 177.778% */
+  letter-spacing: -1.08px;
+  }
 
 .titleForm {
   margin-top: 100px;
@@ -43,7 +49,8 @@
 }
 
 .paragraphForm {
-  font-size: 20px;
+  color: #787878;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
@@ -94,7 +101,7 @@
   background: #eb4242;
   color: white;
   border: none;
-
+  
   font-size: 16px;
   font-weight: 600;
   line-height: 19.36px;
@@ -132,4 +139,96 @@
 .buttonLogin:hover {
   background: #121212;
   cursor: pointer;
+}
+
+
+.submitContainer{
+  display: flex;
+  flex-direction: column;
+  gap:10px  
+}
+
+ /* Estilos gerais para telas menores */
+@media (max-width: 768px) {
+
+  .containerRecuperarSenha {
+    flex-direction: column; /* Coloca os elementos um abaixo do outro */
+    justify-content: space-between; /* Centraliza os elementos na tela */
+    align-items: flex-start;
+    height: 100vh;
+  }
+
+  .containerForm {
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    
+  }
+  .form{
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+   
+  }
+  .subContainer{
+    margin-top: 50px;
+    margin-bottom: -30px;
+    align-items: center;
+    justify-content: center;
+  }
+  .titleForm{
+    font-size: 20px;
+    margin-bottom: -20px;
+   }
+
+   .titleContainerForm{
+    font-size: 16px;
+
+  }
+
+  .paragraphForm{
+  
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .paragraphField{
+    font-size: 12px;
+    
+  }
+  .formField {
+    width: 100%;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    
+  }
+
+  .inputNumber {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    margin: 3px;
+  }
+
+  .buttonRecuperar, .buttonLogin {
+    width: 70%;
+    margin: 10px 0;
+  }
+
+  .buttonLogin {
+    margin-top: 10px;
+  }
+
+  .submitContainer {
+    margin-top: 20px;
+    align-items: center;
+  }
+  .alignContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

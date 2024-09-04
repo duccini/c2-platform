@@ -1,25 +1,18 @@
 .logoContainer {
   position: absolute;
-  left: 0;
+  left: 50px;
   right: 0;
   margin: 35px;
 }
 
-.vector {
-  width: 1288.28px;
-  height: 1610.07px;
-  top: -334.28px;
-  left: 356.1px;
-  gap: 0px;
-  max-height: 100vh;
-  z-index: 4;
-}
 
+.card{
+  width: 60%;
+}
 .mask {
   width: 100%;
   height: 100vw;
   max-height: 100vh;
-  max-width: calc(1240px * (100vh / 957px));
   gap: 0px;
   background: linear-gradient(0deg, #191919 0%, #191919 100%);
   position: relative;
@@ -31,12 +24,12 @@
 .vector2,
 .vector3 {
   width: 1350px;
-  height: 1350px;
+  height: 1550px;
   opacity: 0.4; /* Corrigido para 0.4 (não é um valor válido em pixels) */
   transform: rotate(52deg);
   position: absolute; /* Permite a sobreposição */
-  top: -100px; /* Alinhamento vertical */
-  border-radius: 250px;
+  top: -300px; /* Alinhamento vertical */
+  border-radius: 25%;
 }
 
 .vector1 {
@@ -64,38 +57,53 @@
 
 .containerInferior {
   position: absolute;
-  bottom: 20px;
-  left: 25px;
+  bottom: 50px;
+  left: 100px;
   color: white;
   padding: 25px;
   align-items: center;
-
-  backdrop-filter: blur(10px);
-  background: #a4a2a20d;
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  border: 1px solid #78787879;
   border-radius: 24px;
-
   width: 634px;
   height: 198px;
   gap: 48px;
 }
 
 .containerTitle {
+  color: #FFF;
   font-size: 32px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 48px;
-  letter-spacing: -0.03em;
-  text-align: left;
+  line-height: 150%;
+  letter-spacing: -0.96px;
 }
 
 .negritoText {
-  font-weight: bold;
+  font-weight: 600;
+  
 }
 
 .containerParagraph {
-  margin-top: 20px;
+  margin-top: 24px;
+  color: #CBCBCB;
   font-size: 20px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 30px;
-  letter-spacing: -0.03em;
-  text-align: left;
+  line-height: 150%; /* 30px */
+  letter-spacing: -0.6px;
+}
+
+
+
+/* Tela pequena (mobile) */
+@media (max-width: 768px) {
+
+  .card{
+
+    display: none;
+  }
+
 }
