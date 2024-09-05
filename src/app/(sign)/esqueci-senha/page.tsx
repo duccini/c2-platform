@@ -14,24 +14,27 @@ export default function EsqueciSenha() {
   const router =useRouter()
    const [email,setEmail] = useState('')
    const [emailError,setEmailError]=useState(false)
-
+   const [loading,setLoading]= useState(false)
    const handleSubmit = async (e:React.FormEvent) => {
    
     e.preventDefault()
     // Reset errors
     setEmailError(!email);
+
+    setLoading(true)
    
     try {
       const response = await api.post('/auth/request-password-reset', {email})
       if(!response){
         console.log("email não encontrado!")
-
+        setLoading(false)
         return
       }
 
       if(!email){
 
         console.log("O Email é obrigatório!")
+        setLoading(false)
         return
       }
 
@@ -39,6 +42,11 @@ export default function EsqueciSenha() {
      
     } catch (error) {
       console.log(error)
+    }
+    finally{
+
+   setLoading(false)
+
     }
 
    }
@@ -87,11 +95,12 @@ export default function EsqueciSenha() {
             />
           </div>
           {emailError && <Error message="Email invalido ou não cadastrado!"/>}
+          
 
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.buttonRecuperar}>
           
-             Recuperar minha senha 
+            {loading ? "Enviando..." : "Recuperar minha senha"}
           
             </button>
            <button className={styles.buttonVoltar}>
