@@ -1,6 +1,6 @@
 'use client'
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import api from '../../../utils/api';
 import styles from "./page.module.css";
 import Image from "next/image";
@@ -32,9 +32,10 @@ export default function RedefinirSenha() {
   };
 
   return (
+    <Suspense fallback={<div>Carregando...</div>}>
     <div className={styles.containerRedefinirSenha}>
       <BackgroundStyle />
-
+      
       <div className={styles.containerForm}>
      
 
@@ -84,5 +85,6 @@ export default function RedefinirSenha() {
         </form>
       </div>
     </div>
+    </Suspense>
   );
 }
