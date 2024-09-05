@@ -1,11 +1,36 @@
+'use client'
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
+import api from '../../../utils/api';
 import styles from "./page.module.css";
 import Image from "next/image";
-
 import logoCodigoCerto from "public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/ContainerLogin/page";
 import Link from "next/link";
 
 export default function RedefinirSenha() {
+  const router = useRouter();
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const searchParams = useSearchParams();
+  const token = searchParams.get('token'); // Pega o token da URL
+
+  const handleSubmit = async (e:React.FormEvent) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert('As senhas não coincidem');
+      return;
+    }
+
+    try {
+      await api.post('/auth/reset-password', { token, password });
+      router.push('/login'); // Redireciona para a página de login
+    } catch (error) {
+      console.error("Erro ao redefinir a senha", error);
+    }
+  };
+
   return (
     <div className={styles.containerRedefinirSenha}>
       <BackgroundStyle />
@@ -13,7 +38,7 @@ export default function RedefinirSenha() {
       <div className={styles.containerForm}>
      
 
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.subContainer}>
        <Link href='/'>
        <Image
@@ -36,6 +61,7 @@ export default function RedefinirSenha() {
               id="password"
               name="password"
               placeholder="Deve conter no mínimo 8 caracteres"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
@@ -46,6 +72,7 @@ export default function RedefinirSenha() {
               id="password"
               name="password"
               placeholder="Deve conter no mínimo 8 caracteres"
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
 

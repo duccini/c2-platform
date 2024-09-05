@@ -66,7 +66,7 @@ export default function CadastroUser() {
       });
 
       Cookies.set("token", response.data.token, { expires: 1 });
-      router.push('/NewDashboard');
+      router.push('/login');
 
     } catch (error) {
       console.log("Erro ao registrar usuário:", error);

@@ -1,12 +1,54 @@
+'use client'
 import Link from "next/link";
+import Error from './../../../components/Validation/index'
 import styles from "./page.module.css";
 import { FaArrowLeft, FaEnvelope, FaLock } from "react-icons/fa";
 import Image from "next/image";
-
+import api from "../../../utils/api"
 import logoCodigoCerto from "public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/ContainerLogin/page";
-
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 export default function EsqueciSenha() {
+
+  const router =useRouter()
+   const [email,setEmail] = useState('')
+   const [emailError,setEmailError]=useState(false)
+
+   const handleSubmit = async (e:React.FormEvent) => {
+   
+    e.preventDefault()
+    // Reset errors
+    setEmailError(!email);
+   
+    try {
+      const response = await api.post('/auth/request-password-reset', {email})
+      if(!response){
+        console.log("email não encontrado!")
+
+        return
+      }
+
+      if(!email){
+
+        console.log("O Email é obrigatório!")
+        return
+      }
+
+      router.push("/recuperar-senha")
+     
+    } catch (error) {
+      console.log(error)
+    }
+
+   }
+
+
+
+
+
+
+
   return (
     <div className={styles.containerSenhaUser}>
       <BackgroundStyle />
@@ -14,7 +56,7 @@ export default function EsqueciSenha() {
       <div className={styles.containerForm}>
        
 
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.subContainer}>
        <Link href='/'>
        <Image
@@ -41,14 +83,16 @@ export default function EsqueciSenha() {
               id="email"
               name="Email"
               placeholder="Digite seu email"
+              onChange={(e)=> setEmail(e.target.value)}
             />
           </div>
+          {emailError && <Error message="Email invalido ou não cadastrado!"/>}
 
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.buttonRecuperar}>
-           <Link href="/recuperar-senha">
+          
              Recuperar minha senha 
-           </Link>
+          
             </button>
            <button className={styles.buttonVoltar}>
             
