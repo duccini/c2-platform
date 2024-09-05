@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 
 const api = axios.create({
 
-    baseURL: "https://c2-server.onrender.com"
+    baseURL: "http://localhost:3000"
 
     //https://c2-server.onrender.com    URL DO BACKEND EM PRODUÇÃO
 })

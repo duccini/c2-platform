@@ -15,7 +15,9 @@
     justify-content: center;
     flex-direction: column;
   }
-  
+  .loadingMessage{
+    color:#eb4242;
+  }
   .subContainer {
     display: flex; 
     gap: 24px; 
