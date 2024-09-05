@@ -186,6 +186,10 @@
   
 }
 
+.loadingMessage{
+  color:#eb4242;
+}
+
 .checkbox input[type="checkbox"]:checked::after {
   content: ''; 
   position: absolute;

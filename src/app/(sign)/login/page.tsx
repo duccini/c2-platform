@@ -2,24 +2,24 @@
 
 import styles from "./page.module.css";
 import logoCodigoCerto from "public/images/codigocerto.svg";
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Link from "next/link";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import Image from "next/image";
 import BackgroundStyle from "@/components/ContainerLogin/page";
-import api from "../../../utils/api"
+import api from "../../../utils/api";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Error from "../../../components/Validation/index";
 
 export default function LoginUser() {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [invalidEmailError, setInvalidEmailError] = useState(false);
+  const [loginError, setLoginError] = useState(false);
+  const [loading, setLoading] = useState(false);  // Estado de carregamento
 
   const router = useRouter();
 
@@ -30,21 +30,35 @@ export default function LoginUser() {
     setEmailError(!email);
     setPasswordError(!password);
     setInvalidEmailError(false);
+    setLoginError(false);
 
- 
+    if (!email || !password) {
+      return;
+    }
+
+    setLoading(true);  // Inicia o estado de carregamento
 
     try {
-      const response = await api.post('/auth/login', {
-        email, password
-      });
+      const response = await api.post('/auth/login', { email, password });
+
+      if (response.data.error === "Senha Incorreta!" || response.data.error === "Usuário não encontrado") {
+        setLoginError(true);
+        setLoading(false);  // Encerra o estado de carregamento
+        return;
+      }
 
       Cookies.set("token", response.data.token, { expires: 1 });
+      setLoading(false);  // Encerra o estado de carregamento
       router.push("/NewDashboard");
     } catch (error) {
+     
+        setLoginError(true);
+      
       console.log("Erro ao fazer login:", error);
-      // Você pode adicionar uma mensagem de erro aqui para o usuário
+    } finally {
+      setLoading(false);  // Garante que o carregamento seja encerrado mesmo em caso de erro
     }
-  }
+  };
 
   return (
     <div className={styles.ContainerPageLogin}>
@@ -94,6 +108,9 @@ export default function LoginUser() {
             />
           </div>
           {passwordError && <Error message="Senha é obrigatória!" />}
+          {loginError && <Error message="Dados inválidos ou usuário não cadastrado" />}
+
+          {loading && <p className={styles.loadingMessage}>Carregando...</p>} {/* Exibe o estado de carregamento */}
 
           <div className={styles.containerOptions}>
             <div className={styles.checkbox}>
@@ -108,8 +125,8 @@ export default function LoginUser() {
           </div>
 
           <div className={styles.submitContainer}>
-            <button type="submit" className={styles.submitButton}>
-              Entrar
+            <button type="submit" className={styles.submitButton} disabled={loading}>
+              {loading ? 'Entrando...' : 'Entrar'}
             </button>
 
             <p className={styles.signupLink}>
