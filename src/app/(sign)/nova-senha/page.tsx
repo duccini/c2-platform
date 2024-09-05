@@ -1,6 +1,6 @@
 'use client'
-import { useRouter, useSearchParams } from 'next/navigation';
-import { Suspense, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import api from '../../../utils/api';
 import styles from "./page.module.css";
 import Image from "next/image";
@@ -12,10 +12,18 @@ export default function RedefinirSenha() {
   const router = useRouter();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const searchParams = useSearchParams();
-  const token = searchParams.get('token'); // Pega o token da URL
+  const [token, setToken] = useState('');
 
-  const handleSubmit = async (e:React.FormEvent) => {
+  // Obtém o token da URL
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tokenFromUrl = urlParams.get('token');
+    if (tokenFromUrl) {
+      setToken(tokenFromUrl);
+    }
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -32,26 +40,23 @@ export default function RedefinirSenha() {
   };
 
   return (
-    <Suspense fallback={<div>Carregando...</div>}>
     <div className={styles.containerRedefinirSenha}>
       <BackgroundStyle />
       
       <div className={styles.containerForm}>
-     
-
         <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.subContainer}>
-       <Link href='/'>
-       <Image
-            className={styles.logoContainer}
-            src={logoCodigoCerto}
-            alt="Logo codigo certo"
-            width={48}
-            height={32}
-          />
-       </Link>
-          <h1 className={styles.titleContainerForm}>Código Certo Coders</h1>
-        </div>
+          <div className={styles.subContainer}>
+            <Link href='/'>
+              <Image
+                className={styles.logoContainer}
+                src={logoCodigoCerto}
+                alt="Logo codigo certo"
+                width={48}
+                height={32}
+              />
+            </Link>
+            <h1 className={styles.titleContainerForm}>Código Certo Coders</h1>
+          </div>
           <h1 className={styles.titleForm}>Redefinir senha</h1>
           <p className={styles.paragraphForm}>Insira sua nova senha.</p>
 
@@ -70,8 +75,8 @@ export default function RedefinirSenha() {
           <div className={styles.formField}>
             <input
               type="password"
-              id="password"
-              name="password"
+              id="confirmPassword"
+              name="confirmPassword"
               placeholder="Deve conter no mínimo 8 caracteres"
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
@@ -85,6 +90,5 @@ export default function RedefinirSenha() {
         </form>
       </div>
     </div>
-    </Suspense>
   );
 }
