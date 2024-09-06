@@ -93,7 +93,7 @@ export default function LoginUser() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          {emailError && <Error message="Email é Obrigatório!" />}
+          {emailError && <Error message="Email é obrigatório!" />}
           {invalidEmailError && <Error message="Digite um email válido!" />}
 
           <p className={styles.paragraphField}>Senha*</p>

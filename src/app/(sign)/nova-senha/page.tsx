@@ -7,13 +7,16 @@ import Image from "next/image";
 import logoCodigoCerto from "public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/ContainerLogin/page";
 import Link from "next/link";
+import Error from '@/components/Validation';
 
 export default function RedefinirSenha() {
   const router = useRouter();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [token, setToken] = useState('');
-
+  const  [errorPassword, setErrorPassword] = useState(false)
+  const  [errorEmptyPassword, setErrorEmptyPassword] = useState(false)
+  const [loading,setLoading]= useState(false)
   // Obtém o token da URL
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -25,17 +28,37 @@ export default function RedefinirSenha() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    setErrorPassword(false)
+    setErrorEmptyPassword(false)
+  
+
+    if( !password || !confirmPassword){
+
+      setErrorEmptyPassword(true)
+
+     return 
+    } 
 
     if (password !== confirmPassword) {
-      alert('As senhas não coincidem');
+    
+
+      setErrorPassword(true)
       return;
     }
 
     try {
+      setLoading(true)
+
       await api.post('/auth/reset-password', { token, password });
+
+      setLoading(false)
       router.push('/login'); // Redireciona para a página de login
     } catch (error) {
       console.error("Erro ao redefinir a senha", error);
+      setLoading(false)
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -82,9 +105,13 @@ export default function RedefinirSenha() {
             />
           </div>
 
+          {errorPassword && <Error message='As senhas não coincidem!'/>}
+          {errorEmptyPassword && <Error message='Os campos são obrigatórios'/>}
+
+
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.submitButton}>
-              Alterar senha
+              {loading ?  "Alterando..." : "Alterar senha"}
             </button>
           </div>
         </form>

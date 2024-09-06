@@ -42,6 +42,7 @@ export default function EsqueciSenha() {
      
     } catch (error) {
       console.log(error)
+      setLoading(false)
     }
     finally{
 
@@ -100,7 +101,7 @@ export default function EsqueciSenha() {
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.buttonRecuperar}>
           
-            {loading ? "Enviando..." : "Recuperar minha senha"}
+            {loading ? "Enviando..." : "Enviar"}
           
             </button>
            <button className={styles.buttonVoltar}>

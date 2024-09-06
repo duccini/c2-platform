@@ -24,6 +24,10 @@
   padding: 10px;
 }
 
+.loadingMessage{
+  color:#eb4242;
+}
+
 .logoContainer {
   width: 60px;
   height: 40px;

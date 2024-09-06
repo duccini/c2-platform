@@ -1,12 +1,16 @@
 'use client'
+
 import styles from "./page.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import { FaArrowLeft } from "react-icons/fa"; // Adiciona o ícone
 import logoCodigoCerto from "public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/ContainerLogin/page";
 import Link from "next/link";
-import api from "../../../utils/api"
+import api from "../../../utils/api";
 import { useRouter } from "next/navigation";
+import Error from "@/components/Validation";
+
 export default function RecuperarSenha() {
   // Estados para cada input de código
   const [input1, setInput1] = useState("");
@@ -15,11 +19,14 @@ export default function RecuperarSenha() {
   const [input4, setInput4] = useState("");
   const [input5, setInput5] = useState("");
   const [input6, setInput6] = useState("");
-
-  const router = useRouter()
+  const [loading, setLoading] = useState(false); // Estado de carregamento
+  const [errorToken,setErrorToken]=useState(false)
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true); // Inicia o carregamento
+    setErrorToken(false)
     const token = `${input1}${input2}${input3}${input4}${input5}${input6}`;
   
     try {
@@ -30,8 +37,12 @@ export default function RecuperarSenha() {
       }
     } catch (error) {
       console.error("Token inválido", error);
+      setErrorToken(true)
+    } finally {
+      setLoading(false); // Termina o carregamento
     }
   };
+
 
   return (
     <div className={styles.containerRecuperarSenha}>
@@ -103,27 +114,25 @@ export default function RecuperarSenha() {
                 onChange={(e) => setInput6(e.target.value)}
               />
             </div>
+            {errorToken && <Error message="O Token é inválido!"/>}
           </div>
 
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.buttonRecuperar}>
-              Confirmar
+          
+            {loading ? "Enviando..." : "Recuperar"}
+          
             </button>
-
-            <Link href="/esqueci-senha">
-              <button type="button" className={styles.buttonLogin}>
-                Reenviar código
-              </button>
+           <button className={styles.buttonVoltar}>
+            
+           <Link href="/esqueci-senha" className={styles.arrowLeft} >
+              <FaArrowLeft  />
+              Reenviar
             </Link>
+           </button>
           </div>
         </form>
       </div>
     </div>
   );
 }
-
-
-
-
-
-
