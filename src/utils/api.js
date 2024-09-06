@@ -4,7 +4,9 @@ import Cookies from 'js-cookie'
 
 const api = axios.create({
 
-    baseURL: "http://localhost:4000"
+    baseURL: "https://c2-server.onrender.com"
+
+    //https://c2-server.onrender.com    URL DO BACKEND EM PRODUÇÃO
 })
 
 api.interceptors.request.use((config) => {

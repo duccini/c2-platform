@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
+import "../../../src/app/globals.css"
 import "./page.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Código Certo - SignIn",
+  title: "Código Certo",
 };
 
 export default function LoginLayout({

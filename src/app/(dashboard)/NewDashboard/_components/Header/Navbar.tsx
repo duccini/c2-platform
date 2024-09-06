@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
   const router = useRouter();
@@ -24,6 +25,12 @@ const Navbar = () => {
     setProfileMenuVisible(!profileMenuVisible);
     // router.push('/profile'); // Remover o comentário para redirecionar para a página de perfil
   };
+
+  function handleLogout() {
+    Cookies.remove('token');
+   
+    router.push('/')
+  }
 
   return (
     <div className={styles.navbar}>
@@ -73,7 +80,7 @@ const Navbar = () => {
             <div className={styles.profileMenu}>
               <div className={styles.profileMenuItem}>Minha Conta</div>
               <div className={styles.profileMenuItem}>Configurações</div>
-              <div className={styles.profileMenuItem}>Sair</div>
+              <div className={styles.profileMenuItem} onClick={handleLogout}>Sair</div>
             </div>
           )}
         </div>
