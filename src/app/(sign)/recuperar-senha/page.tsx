@@ -3,7 +3,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa"; // Adiciona o ícone
+import { FaArrowLeft } from "react-icons/fa"; 
 import logoCodigoCerto from "public/images/codigocerto.svg";
 import BackgroundStyle from "@/components/ContainerLogin/page";
 import Link from "next/link";
@@ -12,37 +12,58 @@ import { useRouter } from "next/navigation";
 import Error from "@/components/Validation";
 
 export default function RecuperarSenha() {
-  // Estados para cada input de código
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
   const [input3, setInput3] = useState("");
   const [input4, setInput4] = useState("");
   const [input5, setInput5] = useState("");
   const [input6, setInput6] = useState("");
-  const [loading, setLoading] = useState(false); // Estado de carregamento
-  const [errorToken,setErrorToken]=useState(false)
+  const [loading, setLoading] = useState(false);
+  const [errorToken, setErrorToken] = useState(false);
+
   const router = useRouter();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, setInput: React.Dispatch<React.SetStateAction<string>>) => {
+    const value = e.target.value;
+    setInput(value);
+
+    // Move o foco para o próximo campo se o valor tiver 1 caractere
+    if (value.length === 1) {
+      const nextInput = e.target.nextElementSibling;
+      if (nextInput) {
+        (nextInput as HTMLInputElement).focus();
+      }
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      const nextInput = (e.target as HTMLElement).nextElementSibling;
+      if (nextInput) {
+        (nextInput as HTMLInputElement).focus();
+      }
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true); // Inicia o carregamento
-    setErrorToken(false)
+    setLoading(true);
+    setErrorToken(false);
     const token = `${input1}${input2}${input3}${input4}${input5}${input6}`;
-  
+
     try {
       const response = await api.post('/auth/validate-reset-token', { token });
-  
+
       if (response.data.success) {
         router.push(`/nova-senha?token=${token}`);
       }
     } catch (error) {
       console.error("Token inválido", error);
-      setErrorToken(true)
+      setErrorToken(true);
     } finally {
-      setLoading(false); // Termina o carregamento
+      setLoading(false);
     }
   };
-
 
   return (
     <div className={styles.containerRecuperarSenha}>
@@ -76,60 +97,63 @@ export default function RecuperarSenha() {
                 className={styles.inputNumber}
                 maxLength={1}
                 value={input1}
-                onChange={(e) => setInput1(e.target.value)}
+                onChange={(e) => handleChange(e, setInput1)}
+                onKeyDown={handleKeyPress}
               />
               <input
                 type="text"
                 className={styles.inputNumber}
                 maxLength={1}
                 value={input2}
-                onChange={(e) => setInput2(e.target.value)}
+                onChange={(e) => handleChange(e, setInput2)}
+                onKeyDown={handleKeyPress}
               />
               <input
                 type="text"
                 className={styles.inputNumber}
                 maxLength={1}
                 value={input3}
-                onChange={(e) => setInput3(e.target.value)}
+                onChange={(e) => handleChange(e, setInput3)}
+                onKeyDown={handleKeyPress}
               />
               <input
                 type="text"
                 className={styles.inputNumber}
                 maxLength={1}
                 value={input4}
-                onChange={(e) => setInput4(e.target.value)}
+                onChange={(e) => handleChange(e, setInput4)}
+                onKeyDown={handleKeyPress}
               />
               <input
                 type="text"
                 className={styles.inputNumber}
                 maxLength={1}
                 value={input5}
-                onChange={(e) => setInput5(e.target.value)}
+                onChange={(e) => handleChange(e, setInput5)}
+                onKeyDown={handleKeyPress}
               />
               <input
                 type="text"
                 className={styles.inputNumber}
                 maxLength={1}
                 value={input6}
-                onChange={(e) => setInput6(e.target.value)}
+                onChange={(e) => handleChange(e, setInput6)}
+                onKeyDown={handleKeyPress}
               />
             </div>
-            {errorToken && <Error message="O Token é inválido!"/>}
+            {errorToken && <Error message="O Token é inválido!" />}
           </div>
 
           <div className={styles.submitContainer}>
             <button type="submit" className={styles.buttonRecuperar}>
-          
-            {loading ? "Enviando..." : "Recuperar"}
-          
+              {loading ? "Enviando..." : "Recuperar"}
             </button>
-           <button className={styles.buttonVoltar}>
-            
-           <Link href="/esqueci-senha" className={styles.arrowLeft} >
-              <FaArrowLeft  />
-              Reenviar
-            </Link>
-           </button>
+            <button className={styles.buttonVoltar}>
+              <Link href="/esqueci-senha" className={styles.arrowLeft}>
+                <FaArrowLeft />
+                Reenviar
+              </Link>
+            </button>
           </div>
         </form>
       </div>
