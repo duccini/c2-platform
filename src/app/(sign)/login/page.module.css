@@ -1,162 +1,304 @@
-.loginUserContainer {
-    display: flex;
-  }
+.ContainerPageLogin{
+
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
   
+ 
+}
+
+  
+.containerForm {
+  background: #121212;
+  color: white;
+  width: 40%;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.subContainer {
+  display: flex; 
+  gap: 24px; 
+  margin: 0 auto; 
+  padding: 10px; 
+}
+
+.logoContainer {
+  width: 60px; 
+  height: 40px; 
+}
+
+.titleContainerForm {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 177.778% */
+  letter-spacing: -1.08px;
+  }
+
+.titleForm {
+  margin-top: 64px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 29.05px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.paragraphForm {
+  color: #787878;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.formField {
+  display: flex; 
+  align-items: center; 
+  background-color: #121212; 
+  border: 1px solid #3b3b3b;
+  gap: 24px;
+  padding: 10px; 
+  border-radius: 12px; 
+  margin-bottom: 15px; 
+  width: 500px;
+}
+
+.paragraphField {
+  margin: 0; 
+  color: white; 
+  margin: 10px 0 10px 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  text-align: left;
+  
+}
+
+.icon {
+  color: rgb(95, 95, 95); 
+  margin-right: 10px; 
+}
+
+.formField input {
+  flex-grow: 1; 
+  background: none; 
+  border: none; 
+  color: white; 
+  padding: 5px; 
+  outline: none; 
+}
+
+.submitContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.submitButton {
+  width: 366px;
+  height: 51px;
+  padding: 16px 10px 16px 10px;
+  gap: 10px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background: #eb4242;
+  color: white;
+  border: none;
+  margin-top: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.36px;
+}
+
+.submitButton:hover {
+  background: #872525;
+  cursor: pointer;
+}
+
+.signupLink {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  margin: 10px 10px 10px 10px;
+  color: #787878;
+}
+
+.linkLogin {
+  margin-left: 10px;
+  color: white;
+}
+.containerOptions{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkbox {
+  display: flex;
+  margin-top:24px;
+  align-items: center;
+  justify-content: center; 
+  
+}
+
+
+.checkbox span {
+  color: #787878;
+
+ 
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+ margin-left: 8px;
+ cursor: pointer;
+  
+}
+
+.manterConectado{
+  margin-right: 30px;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 20px; 
+  height: 20px;
+ 
+  appearance: none; 
+  background-color: black; 
+  border: 1px solid #787878;
+  border-radius: 5px; ;
+}
+
+.checkbox input[type="checkbox"]:checked {
+  background-color: black; 
+  position: relative; 
+  
+}
+
+.loadingMessage{
+  color:#eb4242;
+}
+
+.checkbox input[type="checkbox"]:checked::after {
+  content: ''; 
+  position: absolute;
+  left: 6px; 
+  top: 2px;  
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+/* 
+/* Layout de tela maior */
+/* @media (min-width: 1024px) {
+  .ContainerPageLogin {
+    flex-direction: row;
+  }
+
   .containerForm {
-    background: #232323;
-    color: white;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 40%;
+  }
+
+  .card {
+    width: 60%;
+  }
+}
+ */ 
+/* Layout de tela média */
+/* @media (max-width: 1024px) {
+  .ContainerPageLogin {
     flex-direction: column;
   }
-  
-  .subContainer {
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 10px; 
-    margin: 0 auto; 
-    padding: 10px; 
+
+  .containerForm {
+    width: 100%;
+    padding: 20px;
   }
+
+
+} */
+
+  /* Layout de tela pequena */
+  @media (max-width: 768px) {
+
+    .containerForm {
+      width: 100%;
+      height: 100%;
+      
+    }
+    .form{
+      width: 85%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .subContainer{
+      margin-top: 50px;
+      margin-bottom: -30px;
+      align-items: center;
+      justify-content: center;
+    }
+    .titleContainerForm{
+      font-size: 16px;
   
-  .logoContainer {
-    width: 60px; 
-    height: 40px; 
+    }
+    .titleForm{
+     font-size: 20px;
+     margin-bottom: -20px;
+    }
+  
+    .paragraphForm{
+  
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  .paragraphField{
+    font-size: 12px;
+    
   }
+    .formField {
+      width: 100%;
+      align-self: center;
+      margin-bottom: 5px;
+      
+    }
   
-  .titleContainerForm {
-    font-size: 24px; 
-    font-weight: bold; 
-    margin: 0; 
-    white-space: nowrap; 
+    .checkbox span{
+      font-size: 12px;
+    }
+    .manterConectado{
+      margin-right: 10px;
+    }
+  
+    .formField input{
+  
+      flex-grow: 0.5;
+    }
+  
+    .submitButton {
+      width: 70%;
+      margin-top: 30px;
+      margin-bottom: 5px;
+    }
+    .signupLink{
+    font-size: 12px;
+    }
+  
+    .linkLogin{
+      font-size: 12px;
+    }
   }
-  
-  .titleForm {
-    margin-top: 100px;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 29.05px;
-    letter-spacing: -0.02em;
-    text-align: left;
-  }
-  
-  .paragraphForm {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 20px;
-    text-align: left;
-    margin-bottom: 50px;
-    margin-top: 20px;
-  }
-  
-  .formField {
-    display: flex; 
-    align-items: center; 
-    background-color: #121212; 
-    border: 1px solid #3b3b3b;
-    padding: 10px; 
-    border-radius: 12px; 
-    margin-bottom: 15px; 
-    width: 500px;
-  }
-  
-  .paragraphField {
-    margin: 0; 
-    color: white; 
-    margin: 10px 0 10px 0;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19.36px;
-    text-align: left;
-  }
-  
-  .icon {
-    color: rgb(95, 95, 95); 
-    margin-right: 10px; 
-  }
-  
-  .formField input {
-    flex-grow: 1; 
-    background: none; 
-    border: none; 
-    color: white; 
-    padding: 5px; 
-    outline: none; 
-  }
-  
-  .submitContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .submitButton {
-    width: 366px;
-    height: 51px;
-    padding: 16px 10px 16px 10px;
-    gap: 10px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    background: #eb4242;
-    color: white;
-    border: none;
-  
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 19.36px;
-  }
-  
-  .submitButton:hover {
-    background: #872525;
-    cursor: pointer;
-  }
-  
-  .signupLink {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19.36px;
-    margin: 10px 10px 10px 10px;
-    color: #787878;
-  }
-  
-  .linkLogin {
-    margin-left: 10px;
-    color: white;
-  }
-  
-  .checkbox {
-    display: flex;
-  }
-  
-  .checkbox span {
-    margin-left: 10px;
-  }
-  
-  .checkbox input[type="checkbox"] {
-    width: 20px; 
-    height: 20px;
-    appearance: none; 
-    background-color: black; 
-    border: 1px solid #000; 
-  }
-  
-  .checkbox input[type="checkbox"]:checked {
-    background-color: black; 
-    position: relative; 
-  }
-  
-  .checkbox input[type="checkbox"]:checked::after {
-    content: ''; 
-    position: absolute;
-    left: 6px; 
-    top: 2px;  
-    width: 6px;
-    height: 12px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
+

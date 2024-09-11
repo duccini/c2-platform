@@ -1,0 +1,16 @@
+.error{
+    font-size: 12px;
+    font-weight: 600;
+    color:#eb4242;
+    margin: 0;
+    text-align: start;}
+
+
+@media (max-width: 768px){
+
+    .error{
+
+        font-size: 10px;
+        font-weight: 400;
+    }
+}

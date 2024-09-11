@@ -1,11 +1,14 @@
 .containerRedefinirSenha {
   display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
 }
 
 .containerForm {
-  background: #232323;
+  background: #121212;
   color: white;
-  width: 100vw;
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,18 +24,22 @@
   padding: 10px;
 }
 
+.loadingMessage{
+  color:#eb4242;
+}
+
 .logoContainer {
   width: 60px;
   height: 40px;
 }
 
 .titleContainerForm {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-  white-space: nowrap;
-}
-
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 177.778% */
+  letter-spacing: -1.08px;
+  }
 .titleForm {
   margin-top: 100px;
   font-size: 30px;
@@ -43,7 +50,8 @@
 }
 
 .paragraphForm {
-  font-size: 20px;
+  color: #787878;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   text-align: left;
@@ -103,3 +111,75 @@
   background: #872525;
   cursor: pointer;
 }
+
+
+    /* Layout de tela pequena */
+    @media (max-width: 768px) {
+
+      .containerForm {
+        width: 100%;
+        height: 100%;
+        
+      }
+      .form{
+        width: 85%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .subContainer{
+        margin-top: 50px;
+        margin-bottom: -30px;
+        align-items: center;
+        justify-content: center;
+      }
+      .titleContainerForm{
+        font-size: 16px;
+    
+      }
+      .titleForm{
+       font-size: 20px;
+       margin-bottom: -20px;
+      }
+    
+      .paragraphForm{
+    
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    .paragraphField{
+      font-size: 12px;
+      
+    }
+      .formField {
+        width: 100%;
+        align-self: center;
+        margin-bottom: 5px;
+        
+      }
+    
+      .checkbox span{
+        font-size: 12px;
+      }
+      .manterConectado{
+        margin-right: 10px;
+      }
+    
+      .formField input{
+    
+        flex-grow: 0.5;
+      }
+    
+      .submitButton {
+        width: 70%;
+        margin-top: 30px;
+        margin-bottom: 5px;
+      }
+      .signupLink{
+      font-size: 12px;
+      }
+    
+      .linkLogin{
+        font-size: 12px;
+      }
+    }
