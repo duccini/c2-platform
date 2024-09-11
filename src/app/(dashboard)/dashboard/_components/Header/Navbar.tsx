@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import styles from './Navbar.module.css';
-import { useRouter } from 'next/navigation';
-import Cookies from 'js-cookie';
+import React, { useState } from "react";
+import styles from "./Navbar.module.css";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
   const router = useRouter();
-  const [searchText, setSearchText] = useState('');
-  
+  const [searchText, setSearchText] = useState("");
+
   // gerenciar a visibilidade do menu do perfil
   const [profileMenuVisible, setProfileMenuVisible] = useState(false);
 
@@ -27,9 +27,9 @@ const Navbar = () => {
   };
 
   function handleLogout() {
-    Cookies.remove('token');
-   
-    router.push('/')
+    Cookies.remove("token");
+
+    router.push("/");
   }
 
   return (
@@ -38,14 +38,14 @@ const Navbar = () => {
         <div className={styles.navSection}>
           <div
             className={styles.navItem}
-            onClick={() => handleNavItemClick('dashboard')}
+            onClick={() => handleNavItemClick("dashboard")}
           >
             <div className={styles.navTextInactive}>Dashboard</div>
           </div>
           <div className={styles.navSeparator}>/</div>
           <div
             className={styles.navItem}
-            onClick={() => handleNavItemClick('projects')}
+            onClick={() => handleNavItemClick("projects")}
           >
             <div className={styles.navTextActive}>Projetos</div>
           </div>
@@ -64,12 +64,13 @@ const Navbar = () => {
             className={styles.searchInput}
           />
         </div>
-        <div
-          className={styles.profile}
-          onClick={handleProfileClick}
-        >
+        <div className={styles.profile} onClick={handleProfileClick}>
           <div className={styles.profileContent}>
-            <img className={styles.profileImage} src="/images/Baylee.svg" alt="Baylee Horne" />
+            <img
+              className={styles.profileImage}
+              src="/images/Baylee.svg"
+              alt="Baylee Horne"
+            />
             <div className={styles.profileName}>Baylee Horne</div>
           </div>
           <div className={styles.chevronDown}>
@@ -80,7 +81,9 @@ const Navbar = () => {
             <div className={styles.profileMenu}>
               <div className={styles.profileMenuItem}>Minha Conta</div>
               <div className={styles.profileMenuItem}>Configurações</div>
-              <div className={styles.profileMenuItem} onClick={handleLogout}>Sair</div>
+              <div className={styles.profileMenuItem} onClick={handleLogout}>
+                Sair
+              </div>
             </div>
           )}
         </div>
@@ -90,4 +93,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

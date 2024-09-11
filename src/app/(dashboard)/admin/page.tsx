@@ -7,7 +7,6 @@ export default function Users() {
   return (
     <main className={styles.users}>
       <DashboardHeader text="Usuários" />
-
       <UsersTable />
     </main>
   );
