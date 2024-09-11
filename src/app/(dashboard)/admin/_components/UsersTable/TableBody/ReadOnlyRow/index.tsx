@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import { UserProps } from "@/app/(dashboard)/users/_utils/_types/user.type";
+import { UserProps } from "@/app/(dashboard)/admin/_utils/_types/user.type";
 import { CiEdit } from "react-icons/ci";
 
 import styles from "./styles.module.css";
