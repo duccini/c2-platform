@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
 import styles from "./page.module.css";
 import logoCodigoCerto from "public/images/codigocerto.svg";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Link from "next/link";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import Image from "next/image";
@@ -13,13 +13,13 @@ import { useRouter } from "next/navigation";
 import Error from "../../../components/Validation/index";
 
 export default function LoginUser() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [invalidEmailError, setInvalidEmailError] = useState(false);
   const [loginError, setLoginError] = useState(false);
-  const [loading, setLoading] = useState(false);  // Estado de carregamento
+  const [loading, setLoading] = useState(false); // Estado de carregamento
 
   const router = useRouter();
 
@@ -36,27 +36,29 @@ export default function LoginUser() {
       return;
     }
 
-    setLoading(true);  // Inicia o estado de carregamento
+    setLoading(true); // Inicia o estado de carregamento
 
     try {
-      const response = await api.post('/auth/login', { email, password });
+      const response = await api.post("/auth/login", { email, password });
 
-      if (response.data.error === "Senha Incorreta!" || response.data.error === "Usuário não encontrado") {
+      if (
+        response.data.error === "Senha Incorreta!" ||
+        response.data.error === "Usuário não encontrado"
+      ) {
         setLoginError(true);
-        setLoading(false);  // Encerra o estado de carregamento
+        setLoading(false); // Encerra o estado de carregamento
         return;
       }
 
       Cookies.set("token", response.data.token, { expires: 1 });
-      setLoading(false);  // Encerra o estado de carregamento
-      router.push("/NewDashboard");
+      setLoading(false); // Encerra o estado de carregamento
+      router.push("/dashboard");
     } catch (error) {
-     
-        setLoginError(true);
-      
+      setLoginError(true);
+
       console.log("Erro ao fazer login:", error);
     } finally {
-      setLoading(false);  // Garante que o carregamento seja encerrado mesmo em caso de erro
+      setLoading(false); // Garante que o carregamento seja encerrado mesmo em caso de erro
     }
   };
 
@@ -66,7 +68,7 @@ export default function LoginUser() {
       <div className={styles.containerForm}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.subContainer}>
-            <Link href='/'>
+            <Link href="/">
               <Image
                 className={styles.logoContainer}
                 src={logoCodigoCerto}
@@ -81,7 +83,6 @@ export default function LoginUser() {
           <p className={styles.paragraphForm}>
             Preencha os campos abaixo para acessar sua conta.
           </p>
-
           <p className={styles.paragraphField}>Email*</p>
           <div className={styles.formField}>
             <FaEnvelope className={styles.icon} />
@@ -95,7 +96,6 @@ export default function LoginUser() {
           </div>
           {emailError && <Error message="Email é obrigatório!" />}
           {invalidEmailError && <Error message="Digite um email válido!" />}
-
           <p className={styles.paragraphField}>Senha*</p>
           <div className={styles.formField}>
             <FaLock className={styles.icon} />
@@ -108,25 +108,27 @@ export default function LoginUser() {
             />
           </div>
           {passwordError && <Error message="Senha é obrigatória!" />}
-          {loginError && <Error message="Dados inválidos ou usuário não cadastrado" />}
-
-          {loading && <p className={styles.loadingMessage}>Carregando...</p>} {/* Exibe o estado de carregamento */}
-
+          {loginError && (
+            <Error message="Dados inválidos ou usuário não cadastrado" />
+          )}
+          {loading && <p className={styles.loadingMessage}>Carregando...</p>}{" "}
+          {/* Exibe o estado de carregamento */}
           <div className={styles.containerOptions}>
             <div className={styles.checkbox}>
               <input type="checkbox" id="checkbox1" />
               <span className={styles.manterConectado}>Manter conectado</span>
               <span>
-                <Link href="/esqueci-senha">
-                  Esqueci a senha
-                </Link>
+                <Link href="/esqueci-senha">Esqueci a senha</Link>
               </span>
             </div>
           </div>
-
           <div className={styles.submitContainer}>
-            <button type="submit" className={styles.submitButton} disabled={loading}>
-              {loading ? 'Entrando...' : 'Entrar'}
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={loading}
+            >
+              {loading ? "Entrando..." : "Entrar"}
             </button>
 
             <p className={styles.signupLink}>
