@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
-import { UserProps } from "@/app/(dashboard)/users/_utils/_types/user.type";
-import { EditFormData } from "@/app/(dashboard)/users/_utils/_types/form.type";
+import { UserProps } from "@/app/(dashboard)/admin/_utils/_types/user.type";
+import { EditFormData } from "@/app/(dashboard)/admin/_utils/_types/form.type";
 import { FaCheck, FaXmark } from "react-icons/fa6";
 import { FiTrash2 } from "react-icons/fi";
 
