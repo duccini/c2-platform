@@ -35,6 +35,7 @@ const Form = () => {
 
   const onSubmit = (data: FormData) => {
     console.log(data);
+    reset();
   };
 
   return (

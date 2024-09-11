@@ -92,7 +92,7 @@ const DashboardSidebar = () => {
               <Item
                 text="Usuários"
                 icon={<FaUserFriends />}
-                href="/users"
+                href="/admin"
               ></Item>
 
               <Item
