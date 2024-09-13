@@ -1,32 +1,38 @@
-import { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, ReactNode, useState } from "react";
 
-interface User {
+// Tipo do usuário
+type UserType = {
   username: string;
   email: string;
   token: string;
-}
+};
 
-interface UserContextProps {
-  user: User | null;
-  setUser: (user: User | null) => void;
-}
+// Tipo do contexto
+type PropsUserContext = {
+  user: UserType;
+  setUser: React.Dispatch<React.SetStateAction<UserType>>;
+};
 
-const UserContext = createContext<UserContextProps | undefined>(undefined);
+// Valor inicial do contexto
+const DEFAULT_VALUE: PropsUserContext = {
+  user: {
+    username: "",
+    email: "",
+    token: "",
+  },
+  setUser: () => {},
+};
 
-export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+// Criando o contexto
+export const UserContext = createContext<PropsUserContext>(DEFAULT_VALUE);
+
+// Componente Provider
+export default function UserProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<UserType>(DEFAULT_VALUE.user);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );
-};
-
-export const useUser = (): UserContextProps => {
-  const context = useContext(UserContext);
-  if (!context) {
-    throw new Error('useUser must be used within a UserProvider');
-  }
-  return context;
-};
+}
