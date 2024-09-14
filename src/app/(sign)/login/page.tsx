@@ -1,8 +1,7 @@
 "use client";
-
 import styles from "./page.module.css";
 import logoCodigoCerto from "public/images/codigocerto.svg";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import Image from "next/image";
@@ -11,6 +10,7 @@ import api from "../../../utils/api";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Error from "../../../components/Validation/index";
+import { UserContext } from "@/context/userContext"; // Certifique-se de que está importando o contexto corretamente
 
 export default function LoginUser() {
   const [email, setEmail] = useState("");
@@ -19,8 +19,10 @@ export default function LoginUser() {
   const [passwordError, setPasswordError] = useState(false);
   const [invalidEmailError, setInvalidEmailError] = useState(false);
   const [loginError, setLoginError] = useState(false);
-  const [loading, setLoading] = useState(false); // Estado de carregamento
+  const [loading, setLoading] = useState(false);
 
+  // Usando o contexto de usuário corretamente
+  const { user, setUser} = useContext(UserContext); // Certifique-se de usar user e setUser do contexto
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,36 +31,42 @@ export default function LoginUser() {
     // Reset errors
     setEmailError(!email);
     setPasswordError(!password);
-    setInvalidEmailError(false);
-    setLoginError(false);
 
-    if (!email || !password) {
-      return;
-    }
+    if (!email || !password) return;
 
-    setLoading(true); // Inicia o estado de carregamento
+    setLoading(true);
 
     try {
       const response = await api.post("/auth/login", { email, password });
-
-      if (
-        response.data.error === "Senha Incorreta!" ||
-        response.data.error === "Usuário não encontrado"
-      ) {
+      const datas = response.data.user
+      const error = response.data.error
+      const token = response.data.token
+      console.log(user)
+      if (error) {
         setLoginError(true);
-        setLoading(false); // Encerra o estado de carregamento
+        setLoading(false);
         return;
       }
 
-      Cookies.set("token", response.data.token, { expires: 1 });
-      setLoading(false); // Encerra o estado de carregamento
+      
+      // Salvando o token nos cookies
+      Cookies.set("token", token, { expires: 1 });
+      
+      // Redirecionando para o dashboard
       router.push("/dashboard");
+      // Atualizando o estado global com o contexto
+      setUser({
+        username: datas.username,
+        email: datas.email,
+        token: token,
+      });
+      console.log(user)
+      console.log(datas)
     } catch (error) {
       setLoginError(true);
-
-      console.log("Erro ao fazer login:", error);
+      console.error("Erro ao fazer login:", error);
     } finally {
-      setLoading(false); // Garante que o carregamento seja encerrado mesmo em caso de erro
+      setLoading(false);
     }
   };
 
@@ -72,7 +80,7 @@ export default function LoginUser() {
               <Image
                 className={styles.logoContainer}
                 src={logoCodigoCerto}
-                alt="Logo codigo certo"
+                alt="Logo código certo"
                 width={48}
                 height={32}
               />
@@ -108,11 +116,8 @@ export default function LoginUser() {
             />
           </div>
           {passwordError && <Error message="Senha é obrigatória!" />}
-          {loginError && (
-            <Error message="Dados inválidos ou usuário não cadastrado" />
-          )}
-          {loading && <p className={styles.loadingMessage}>Carregando...</p>}{" "}
-          {/* Exibe o estado de carregamento */}
+          {loginError && <Error message="Dados inválidos ou usuário não cadastrado" />}
+          {loading && <p className={styles.loadingMessage}>Carregando...</p>}
           <div className={styles.containerOptions}>
             <div className={styles.checkbox}>
               <input type="checkbox" id="checkbox1" />
@@ -123,14 +128,9 @@ export default function LoginUser() {
             </div>
           </div>
           <div className={styles.submitContainer}>
-            <button
-              type="submit"
-              className={styles.submitButton}
-              disabled={loading}
-            >
+            <button type="submit" className={styles.submitButton} disabled={loading}>
               {loading ? "Entrando..." : "Entrar"}
             </button>
-
             <p className={styles.signupLink}>
               Não tem uma conta?
               <span>
