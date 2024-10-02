@@ -14,6 +14,8 @@ import VolumeHigh from "@/components/VolumeHigh";
 import VolumeXMark from "@/components/VolumeXMark";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import React from "react";
+
 
 export default function Home() {
   const [playAudio, setPlayAudio] = useState(false);
@@ -29,8 +31,9 @@ export default function Home() {
   }, [playAudio]);
 
   return (
-    <>
-      <Header />
+    
+   <>
+   <Header />
       <main className={styles.site}>
         <div className={styles.Homehero}>
           <div className={styles.HomeheroCta}>
@@ -76,6 +79,7 @@ export default function Home() {
         <div className={styles.Servicos}></div>
       </main>
       <Footer />
-    </>
+  
+      </>    
   );
 }

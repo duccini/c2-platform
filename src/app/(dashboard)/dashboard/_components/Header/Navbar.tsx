@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import { useUser } from "@/context/userContext";
 
 const Navbar = () => {
   const router = useRouter();
@@ -11,7 +12,7 @@ const Navbar = () => {
 
   // gerenciar a visibilidade do menu do perfil
   const [profileMenuVisible, setProfileMenuVisible] = useState(false);
-
+  const {user,setUser} = useUser()
   const handleNavItemClick = (page: string) => {
     router.push(`/${page}`);
   };
@@ -71,7 +72,7 @@ const Navbar = () => {
               src="/images/Baylee.svg"
               alt="Baylee Horne"
             />
-            <div className={styles.profileName}>Baylee Horne</div>
+            <div className={styles.profileName}>{user?.username}</div>
           </div>
           <div className={styles.chevronDown}>
             <img src="/images/chevron-down.svg" alt="Chevron Down" />

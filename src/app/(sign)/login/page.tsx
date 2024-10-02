@@ -11,6 +11,7 @@ import api from "../../../utils/api";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Error from "../../../components/Validation/index";
+import { useUser } from "@/context/userContext";
 
 export default function LoginUser() {
   const [email, setEmail] = useState("");
@@ -20,7 +21,7 @@ export default function LoginUser() {
   const [invalidEmailError, setInvalidEmailError] = useState(false);
   const [loginError, setLoginError] = useState(false);
   const [loading, setLoading] = useState(false); // Estado de carregamento
-
+  const { user, setUser } = useUser();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,7 +41,7 @@ export default function LoginUser() {
 
     try {
       const response = await api.post("/auth/login", { email, password });
-
+      const datasUser = response.data.user;
       if (
         response.data.error === "Senha Incorreta!" ||
         response.data.error === "Usuário não encontrado"
@@ -53,6 +54,13 @@ export default function LoginUser() {
       Cookies.set("token", response.data.token, { expires: 1 });
       setLoading(false); // Encerra o estado de carregamento
       router.push("/dashboard");
+      setUser({
+        username: datasUser.username,
+        email: datasUser.email,
+        token: response.data.token,
+
+      })
+      console.log(user)
     } catch (error) {
       setLoginError(true);
 
