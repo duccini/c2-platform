@@ -1,15 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-
-
+import UserProvider from "@/context/userContext";
 import styles from "./page.module.css";
 
-// import audio from "../../public/audio/Marion.Barfs-Clint.Mansell.mp3";
-
-import playAudioIcon from "../../public/images/volume-high-solid.svg";
-import stopAudioIcon from "../../public/images/volume-xmark-solid.svg";
 import VolumeHigh from "@/components/VolumeHigh";
 import VolumeXMark from "@/components/VolumeXMark";
 import Header from "@/components/Header";
@@ -23,7 +17,6 @@ export default function Home() {
 
   useEffect(() => {
     if (playAudio && audioElement.current) {
-      // alert("play");
       audioElement.current.play();
     } else {
       audioElement.current?.pause();
@@ -31,6 +24,7 @@ export default function Home() {
   }, [playAudio]);
 
   return (
+
     
    <>
    <Header />
@@ -49,37 +43,40 @@ export default function Home() {
             />
           </div>
 
-          <div className={styles.MouseScroll}>
-            <div className={styles.MouseBall}></div>
+
+            <div className={styles.MouseScroll}>
+              <div className={styles.MouseBall}></div>
+            </div>
           </div>
-        </div>
 
-        <div className={styles.Audio} onClick={() => setPlayAudio(!playAudio)}>
-          <audio
-            ref={audioElement}
-            src="/Marion.Barfs-Clint.Mansell.mp3"
-            preload="auto"
-            loop
-          >
-            Your browser does not support the
-            <code>audio</code> element.
-          </audio>
+          <div className={styles.Audio} onClick={() => setPlayAudio(!playAudio)}>
+            <audio
+              ref={audioElement}
+              src="/Marion.Barfs-Clint.Mansell.mp3"
+              preload="auto"
+              loop
+            >
+              Your browser does not support the
+              <code>audio</code> element.
+            </audio>
 
-          {playAudio ? (
-            <div className={styles.icon}>
-              <VolumeHigh />
-            </div>
-          ) : (
-            <div className={styles.icon}>
-              <VolumeXMark />
-            </div>
-          )}
-        </div>
+            {playAudio ? (
+              <div className={styles.icon}>
+                <VolumeHigh />
+              </div>
+            ) : (
+              <div className={styles.icon}>
+                <VolumeXMark />
+              </div>
+            )}
+          </div>
+
 
         <div className={styles.Servicos}></div>
       </main>
       <Footer />
   
       </>    
+
   );
 }

@@ -1,18 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Navbar.module.css";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+
 import { useUser } from "@/context/userContext";
+
 
 const Navbar = () => {
   const router = useRouter();
   const [searchText, setSearchText] = useState("");
-
   // gerenciar a visibilidade do menu do perfil
   const [profileMenuVisible, setProfileMenuVisible] = useState(false);
+
   const {user,setUser} = useUser()
+
   const handleNavItemClick = (page: string) => {
     router.push(`/${page}`);
   };
@@ -24,14 +27,21 @@ const Navbar = () => {
   const handleProfileClick = () => {
     // Alternar a visibilidade do menu do perfil ou redirecionar para a página do perfil
     setProfileMenuVisible(!profileMenuVisible);
-    // router.push('/profile'); // Remover o comentário para redirecionar para a página de perfil
   };
 
-  function handleLogout() {
+  const handleLogout = () => {
+    // Reset global state
+    setUser({
+      username: "",
+      email: "",
+      token: "",
+    });
+    // Remove cookie
     Cookies.remove("token");
 
+    // Redirect to home page
     router.push("/");
-  }
+  };
 
   return (
     <div className={styles.navbar}>
@@ -72,12 +82,13 @@ const Navbar = () => {
               src="/images/Baylee.svg"
               alt="Baylee Horne"
             />
+
             <div className={styles.profileName}>{user?.username}</div>
+
           </div>
           <div className={styles.chevronDown}>
             <img src="/images/chevron-down.svg" alt="Chevron Down" />
           </div>
-          {/* Opcional: adicionr um menu de perfil que aparece quando profileMenuVisible for verdadeiro */}
           {profileMenuVisible && (
             <div className={styles.profileMenu}>
               <div className={styles.profileMenuItem}>Minha Conta</div>

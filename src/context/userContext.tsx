@@ -14,7 +14,7 @@ type UserContextType = {
   setUser: React.Dispatch<React.SetStateAction<UserType | null>>;
 };
 
-// Criando o contexto com valor inicial como `null`
+// Criando o contexto com valor inicial como null
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 // Criando o provider
